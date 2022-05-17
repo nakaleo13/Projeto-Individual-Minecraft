@@ -1,0 +1,19 @@
+body{
+    background-image: url(https://i0.wp.com/shadersmods.com/wp-content/uploads/2021/07/complementary-shaders-minecraft-7.png?ssl=1);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_card{
+    margin-top: 80px;
+    background-image: url(https://i.pinimg.com/474x/92/a5/45/92a5450b2a48e64c2d7a1b43a43d5e75--minecraft-texture.jpg);
+    width: 900px;
+    height: 500px;
+    border-radius: 20px;
+    opacity: 75%;
+}
