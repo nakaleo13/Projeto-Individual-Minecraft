@@ -1,19 +1,93 @@
 body{
-    background-image: url(https://i0.wp.com/shadersmods.com/wp-content/uploads/2021/07/complementary-shaders-minecraft-7.png?ssl=1);
-    position: relative;
-    height: 100%;
+    background-image: url(https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/bb/NetherUpdateArtwork.png/revision/latest?cb=20210213160642);
     width: 100%;
+    height: 100%;
+    position: relative;
     background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
 }
 
+.header{
+    background-color:whitesmoke;
+    height:18vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+
+
+    
+
+    
+}
+
+.logo{
+    margin: 0;
+    background-repeat: no-repeat;
+    width: 20%;
+    height: 60%;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.logo :hover{
+    transition: 0.5s;
+    
+}
+
+.img_minecraft{
+    width:100%;
+    height:100%;
+}
+
+.navbar{
+    font-family:'minecraft', Courier, monospace;
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style: none;
+    
+ 
+}
+
+
+
 .div_card{
-    margin-top: 80px;
-    background-image: url(https://i.pinimg.com/474x/92/a5/45/92a5450b2a48e64c2d7a1b43a43d5e75--minecraft-texture.jpg);
-    width: 900px;
+    margin-top: 120px;
+    background-color: white;
+    width: 550px;
     height: 500px;
     border-radius: 20px;
-    opacity: 75%;
+ 
+   
+    
+    
+    
 }
+
+.div_titulo{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+
+   
+
+}
+
