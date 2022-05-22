@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Red+Hat+Display:wght@800&display=swap');
+
 body{
     margin: 0;
     padding: 0;
-    background-image: url(https://cdn.ome.lt/6THXsX6dV57NKa7nVyQuinw3xB8=/1200x630/smart/extras/conteudos/minecraft-tela-titulo.jpg);
-    background-size: cover;
+}
+
+
+.menu{
+    width:27vw;
+    height: 100vh;
+    background-image: url(http://1.bp.blogspot.com/-J8tTKCzZ8vw/UelMJcZ9ZJI/AAAAAAAAARc/fpOgZqN4nwA/s1600/Madeira.png);
 }

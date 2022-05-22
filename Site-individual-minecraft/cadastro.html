@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,57 +8,71 @@
     <title>Document</title>
     <link rel="stylesheet" href="cadastro.css">
 </head>
+
 <body>
 
     <div class="header">
         <div class="logo">
-            <img class="img_minecraft" src="408-4082297_minecraft-logo-png-transparent-png-removebg-preview.png">
+            <a href="index.html"><img class="img_minecraft" src="Minecraft-logotipo-removebg-preview.png"></a>
         </div>
 
         <ul class="navbar">
 
-            <li><a href="#">Inicial</a></li>
+            <li><a href="index.html">Inicial</a></li>
 
-            <li><a href="#">O que é Minecraft?</a></li>
+            <li><a href="#o_que_e">O que é Minecraft?</a></li>
 
-            <li><a href="#">Criador</a></li>
+            <li><a href="#sobre">Sobre</a></li>
 
-            <li><a href="#">Curiosidades</a></li>
+            <li><a href="#curiosidades">Curiosidades</a></li>
 
-            <li><a href="#">Lenda do Herobrine</a></li>
+            <li><a href="#construcoes">Construções</a></li>
 
 
         </ul>
+
 
     </div>
 
     <div class="div_card">
 
-        <div class="div_titulo"><h1>Cadastro</h1></div>
+        <div class="div_titulo"><span>Cadastro</span></div>
         <div class="formulario">
 
-            <span class="span_tipo">Nome:</span>
-            <input id="input_nome" type="text">
+            <div class="div_inputs">
 
-            <span class="span_tipo">Data de nascimento:</span>
-            <input id="input_data" type="date">
+                <div class="div_esquerda">
 
-            <span class="span_tipo">E-mail:</span>
-            <input id="input_email" type="text">
+                    <span class="span_tipo_nome">Nome:</span>
+                    <input id="input_nome" type="text" placeholder="João Pereira Da Silva">
 
-            <span class="span_tipo">Senha:</span>
-            <input id="input_senha" type="password">
+                    <span class="span_tipo_email">E-mail:</span>
+                    <input id="input_email" type="text" placeholder="username@gmail.com">
 
-            <span class="span_tipo">Confirmar senha:</span>
-            <input id="input_confirmar_senha" type="password">
+                </div>
 
-            <button>Cadastrar</button>
+                <div class="div_direita">
 
-            <span>Já tem uma conta? Iniciar sessão</span>
+                    <span class="span_tipo_senha">Senha:</span>
+                    <input id="input_senha" type="password" placeholder="*****">
+
+                    <span class="span_tipo_confirmar">Confirmar senha:</span>
+                    <input id="input_confirmar_senha" type="password" placeholder="*****">
+
+                </div>
+            </div>
+
+            <div class="div_baixo">
+                <button class="botao_cadastro">Cadastrar</button>
+
+                <span class="span_iniciar">Já tem uma conta? <a class="link_iniciar" href="login.html">Iniciar sessão</a></span>
+            </div>
+
         </div>
-       
+
 
     </div>
-    
+
 </body>
+
 </html>
