@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="js/funcoes.js"></script>
+    
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="img_minecraft" src="img/Minecraft-logotipo-removebg-preview.png"></a>
+        </div>
+
+        <ul class="navbar">
+
+            <li><a href="index.html">Inicial</a></li>
+
+            <li><a href="#o_que_e">O que é Minecraft?</a></li>
+
+            <li><a href="#sobre">Sobre</a></li>
+
+            <li><a href="#curiosidades">Curiosidades</a></li>
+
+            <li><a href="#construções">Construções</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="div_card">
+        <div class="div_titulo"><span>Iniciar Sessão</span></div>
+        <div class="formulario">
+
+
+
+            <span class="span_tipo">E-mail:</span>
+            <input id="input_email" type="text" placeholder="username@gmail.com">
+            <span></span>
+
+            <span class="span_tipo">Senha:</span>
+            <input id="input_senha" type="password" placeholder="*****">
+            <span></span>
+
+            <div class="div_botao"><button class="botao_iniciar" onclick="entrar()">Iniciar sessão</button></div>
+
+            <div id="div_aguardar"></div>
+            <div id="div_erros_login"></div>
+
+            <span class="span_cadastro">Não possui um cadastro ainda? Cadastre-se agora!</span>
+
+            <a href="cadastro.html" target="_blank">
+                <div class="div_botao"><button class="botao_cadastro">Cadastre-se</button></div>
+            </a>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = input_email.value
+        var senhaVar = input_senha.value
+
+        if (emailVar == "" || senhaVar == "") {
+            alert('Todos os campos são obrigatórios')
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }else{
+            // setInterval(sumirMensagem, 5000)
+
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+                        sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+
+                        setTimeout(function () {
+                            window.location = "jogo.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+
+        }
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+
+
+</script>

@@ -1,19 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Red+Hat+Display:wght@800&display=swap');
 
-
 body{
-    background-image: url(https://i0.wp.com/shadersmods.com/wp-content/uploads/2021/07/complementary-shaders-minecraft-7.png?ssl=1);
-    position: relative;
-    height: 100vh;
+    background-image: url(img/NetherUpdateArtwork.webp);
     width: 100vw;
+    height: 100vh;
+    position: relative;
     background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     font-family: 'quicksand';
-    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
+
 }
 
 .header{
@@ -31,6 +30,8 @@ body{
 
 
     
+
+    
 }
 
 .logo{
@@ -44,7 +45,10 @@ body{
     align-items: center;
 }
 
+
+
     
+
 
 .img_minecraft{
     width:65%;
@@ -63,6 +67,7 @@ body{
 
 .img_minecraft:hover{
     transform: scale(1.20,1.20);
+    transition: all 0.3s;
 }
 
 .navbar{
@@ -73,6 +78,7 @@ body{
     align-items: center;
     justify-content: space-evenly;
     list-style: none;
+    
     
  
 }
@@ -109,13 +115,17 @@ a{
 .div_card{
     margin-top: 120px;
     background-color: rgba(255, 255, 255, 0.808);
-    width: 1200px;
+    width: 550px;
     height: 500px;
     border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.767);
     border: black solid 5px;
 
+ 
    
+    
+    
+    
 }
 
 .div_titulo{
@@ -132,92 +142,16 @@ a{
     width: 100%;
     height: 400px;
     display: flex;
+    flex-direction: column;
     font-weight: 700;
-    flex-direction: column;
-    
-
-}
-
-.div_inputs{
-    width: 100%;
-    height: 260px;
-    display: flex;
-    flex-direction: row;
-
-
-}
-
-.div_esquerda{
-    width: 50%;
-    height: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   
-
-}
-
-.div_direita{
-    width: 50%;
-    height: 260px;
-    display: flex;
-    flex-direction: column;
-    align-items: center
-
-}
-
-.div_baixo{
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-.span_tipo_nome{
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: -463px;
-
-}
-
-
-.span_tipo_email{
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: -460px;
-
-}
-
-
-.span_tipo_senha{
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: -460px;
-
-}
-
-
-.span_tipo_confirmar{
-    font-size: 20px;
-    margin-top: 30px;
-    margin-left: -357px;
-
-}
-
-
-#input_nome{
-    width: 500px;  
-    height: 25px;
-    font-size: 22px;
     padding: 10px;
-    border: 5px solid #180230 ;
-    background-color: #f8f893c5;
-    margin-top: 10px;
-    
-    
 
+
+}
+
+.span_tipo{
+    font-size: 20px;
+    margin-top: 15px;
 
 }
 
@@ -226,9 +160,10 @@ a{
     height: 25px;
     font-size: 22px;
     padding: 10px;
-    border: 5px solid #180230 ;
-    background-color: #f8f893c5;
+    border: 5px solid #310101 ;
+    background-color: #71313173;
     margin-top: 10px;
+   
 
 
 }
@@ -238,29 +173,30 @@ a{
     height: 25px;
     font-size: 22px;
     padding: 10px;
-    border: 5px solid #180230 ;
-    background-color: #f8f893c5;
+    border: 5px solid #310101 ;
+    background-color: #71313173;
     margin-top: 10px;
 
 
 }
-
-#input_confirmar_senha{
-    width: 500px;  
-    height: 25px;
-    font-size: 22px;
-    padding: 10px;
-    border: 5px solid #180230 ;
-    background-color: #f8f893c5;
-    margin-top: 10px;
+#input_email::placeholder{
+    color: rgba(0, 0, 0, 0.5);
 
 }
 
-.botao_cadastro{
+#input_senha::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+   
+   
+
+}
+
+.botao_iniciar{
     width: 150px;
     height: 60px;
-    margin-right:;
-    background-color: blueviolet;
+    margin-right:20px ;
+    background-color: #310101;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,73 +207,52 @@ a{
     color:white;
     text-decoration: none;
     cursor: pointer;
-    border: 3px solid #070711;
+    border: 5px solid black;
     transition: .5s;
 
 }
 
-.botao_cadastro:hover{
-    background: blueviolet url(pixel.png);
-    background-size: 100%;
-    transition-delay: .8s;
-    animation: animate1 .8s steps(8) forwards;
-    
-}
 
 
-
-@keyframes animate1{
-    0%{
-        background-position-y: 0 ;
-    }
-
-    100%{
-        background-position-y: -250px ;
-    }
-}
-
-.botao_cadastro:after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: all 0.6s  cubic-bezier(0.165, 0.84, 0.44, 1);
-    z-index: -1;
-
-
-}
-
-.botao_cadastro:hover{
-    transform: scale(1.10,1.10);
-    transition: 0.3s;
-
-
-}
-
-.span_iniciar{
-    margin-top: 15px;
-    font-size: 25px;
-
-}
-
-.link_iniciar a{
-    text-decoration: none;
-    color: white;
+.span_cadastro{
     font-size: 20px;
+    margin-top: 10px;
     display: flex;
-}
-
-.link_iniciar a:after{
-    content: '';
-    position: absolute;
-    transition: all 0.6s  cubic-bezier(0.165, 0.84, 0.44, 1);
-    z-index: -1;
-}
-
-.link_iniciar a:hover{
-    transform: scale(1.20,1.20);
-    color: #4CAF50;
-
+    justify-content: center;
 
 }
+
+.div_botao{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.botao_cadastro{
+    width: 150px;
+    height: 60px;
+    margin-right:20px ;
+    background-image: url(img/End_Gateway.webp);
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 12px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color:white;
+    text-decoration: none;
+    cursor: pointer;
+    border: 5px solid #d8ee6a;
+    transition: .5s;
+   
+
+}
+
+
+
 
