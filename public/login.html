@@ -42,23 +42,24 @@
 
 
             <span class="span_tipo">E-mail:</span>
-            <input id="input_email" type="text" placeholder="username@gmail.com">
-            <span></span>
+            <input id="input_email" type="text" placeholder="username@gmail.com" onkeyup="validacao_email()">
+            <span class="validacao_errada" id="email_errado"></span>
+            
 
             <span class="span_tipo">Senha:</span>
             <input id="input_senha" type="password" placeholder="*****">
-            <span></span>
+            <div class="div_baixo">
+            <div id="div_aguardar"></div>
+            <div id="div_erros_login"></div>
+           
 
             <div class="div_botao"><button class="botao_iniciar" onclick="entrar()">Iniciar sessão</button></div>
 
-            <div id="div_aguardar"></div>
-            <div id="div_erros_login"></div>
+            
 
-            <span class="span_cadastro">Não possui um cadastro ainda? Cadastre-se agora!</span>
+            <span class="span_cadastro">Não possui um cadastro ainda?  <a class="link_cadastrar" href="cadastro.html" target="_blank">Cadastre-se agora!</a></span>
 
-            <a href="cadastro.html" target="_blank">
-                <div class="div_botao"><button class="botao_cadastro">Cadastre-se</button></div>
-            </a>
+            </div>
         </div>
 
 
@@ -73,6 +74,23 @@
 </html>
 
 <script>
+
+var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
+
+function validacao_email() {
+
+        var email = input_email.value;
+        // Verifica email
+        if (email.match(emailReg)) {
+            email_errado.innerHTML = '';
+            input_email.style.border = '5px solid green ';
+            input_email.style.color =" green";
+        } else {
+            email_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
+            input_email.style.color = "red";
+            input_email.style.border = '5px solid red' ;
+        }
+    }
 
     function entrar() {
         aguardar();

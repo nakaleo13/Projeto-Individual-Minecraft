@@ -130,7 +130,7 @@ a{
 
 .formulario{
     width: 100%;
-    height: 400px;
+    height: 420px;
     display: flex;
     font-weight: 700;
     flex-direction: column;
@@ -140,7 +140,7 @@ a{
 
 .div_inputs{
     width: 100%;
-    height: 260px;
+    height: 220px;
     display: flex;
     flex-direction: row;
 
@@ -153,6 +153,7 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
    
 
 }
@@ -168,48 +169,50 @@ a{
 
 .div_baixo{
     width: 100%;
-    height: 100px;
+    height: 190px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items:center;
+    justify-content: flex-end;
+     
 }
 
 
 .span_tipo_nome{
     font-size: 20px;
-    margin-top: 30px;
     margin-left: -463px;
+    margin-top: 20px;
 
 }
 
 
 .span_tipo_email{
     font-size: 20px;
-    margin-top: 30px;
     margin-left: -460px;
+    margin-top: 20px;
 
 }
 
 
 .span_tipo_senha{
     font-size: 20px;
-    margin-top: 30px;
     margin-left: -460px;
+    margin-top: 20px;
 
 }
 
 
 .span_tipo_confirmar{
     font-size: 20px;
-    margin-top: 30px;
     margin-left: -357px;
+    margin-top: 20px;
 
 }
 
 
 #input_nome{
     width: 500px;  
-    height: 25px;
+    height: 20px;
     font-size: 22px;
     padding: 10px;
     border: 5px solid #180230 ;
@@ -217,13 +220,11 @@ a{
     margin-top: 10px;
     
     
-
-
 }
 
 #input_email{
     width: 500px;  
-    height: 25px;
+    height: 20px;
     font-size: 22px;
     padding: 10px;
     border: 5px solid #180230 ;
@@ -235,7 +236,7 @@ a{
 
 #input_senha{
     width: 500px;  
-    height: 25px;
+    height: 20px;
     font-size: 22px;
     padding: 10px;
     border: 5px solid #180230 ;
@@ -247,7 +248,7 @@ a{
 
 #input_confirmar_senha{
     width: 500px;  
-    height: 25px;
+    height: 20px;
     font-size: 22px;
     padding: 10px;
     border: 5px solid #180230 ;
@@ -256,6 +257,15 @@ a{
 
 
 }
+
+.validacao_errada{
+    height: 25px;
+    font-size: 15px;
+    
+
+}
+
+
 
 .botao_cadastro{
     width: 150px;
@@ -274,8 +284,11 @@ a{
     cursor: pointer;
     border: 3px solid #070711;
     transition: .5s;
+    
 
 }
+
+
 
 .botao_cadastro:hover{
     background: blueviolet url(img/pixel.png);
@@ -316,8 +329,9 @@ a{
 }
 
 .span_iniciar{
-    margin-top: 15px;
-    font-size: 25px;
+    margin-top: 10px;
+    font-size: 21px;
+    margin-bottom: 5px;
 
 }
 

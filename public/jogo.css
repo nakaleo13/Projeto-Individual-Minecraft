@@ -3,11 +3,52 @@
 body{
     margin: 0;
     padding: 0;
+
+}
+
+
+.div_tela{
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-image: url(img/377757.jpg);
+    transition: 0.6s;
+    display: flex;
+    flex-direction: row;
+
+
 }
 
 
 .menu{
     width:27vw;
     height: 100vh;
-    background-image: url(http://1.bp.blogspot.com/-J8tTKCzZ8vw/UelMJcZ9ZJI/AAAAAAAAARc/fpOgZqN4nwA/s1600/Madeira.png);
+    background-color: rgba(0, 0, 0, 0.719);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    
 }
+
+.conteudo{
+
+    width: 73vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div_lenda{
+    background-color: rgba(240, 248, 255, 0.795);
+    width: 90%;
+    height: 90%;
+}
+
+
+
+
+

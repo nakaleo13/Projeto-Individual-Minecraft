@@ -9,15 +9,63 @@
 </head>
 <body>
 
+    <div class="div_tela" id="tela">
+
     <div class="menu">
+        <span>Bem vindo undefined!</span>
+
+        <button>A Lenda do Herobrine</button>
+        <button>Jogar o Quiz</button>
+        <button>Sair</button>
+    
 
     </div>
 
+
+
     <div class="conteudo">
 
+        <div class="div_lenda">
+
+            
+
+
+        </div>
+
         
+    </div>
+
+
+
+
     </div>
     
     
 </body>
 </html>
+
+<script>
+
+    function mudar_imagem(){
+         var imagens = ['url(./img/fundo1.jpg)','url(./img/fundo2.png)','url(./img/fundo3.jpg)','url(./img/fundo4.jpg)','url(./img/fundo5.jpg)','url(./img/fundo6.jpg)','url(./img/fundo7.jpg)','url(./img/fundo8.png)']
+
+         var aleatorio = Math.floor(Math.random(1) * (8))
+
+
+         tela.style.backgroundImage = imagens[aleatorio];
+
+
+    }
+
+    setInterval(
+        function(){
+            mudar_imagem()
+        },3000);
+    
+
+
+
+
+
+
+</script>
