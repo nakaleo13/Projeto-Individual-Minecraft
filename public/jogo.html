@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="jogo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -20,9 +21,9 @@
             </div>
 
             <div class="menu_baixo">
-                <button onclick="aparecer_lenda()">A Lenda do Herobrine</button>
-                <button onclick="aparecer_quiz()">Jogar o Quiz</button>
-                <a href="index.html" target="_blank"><button>Sair</button></a>
+                <button class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
+                <button class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
+                <a href="index.html" target="_blank"><button class="botao_menu">Sair</button></a>
             </div>
 
 
@@ -51,7 +52,18 @@
 
             <div id="div_quiz">
 
-                <button onclick="jogar()">JOGAR</button>
+                <div class="titulo_pergunta">Será que você realmente conhece o Minecraft tão bem assim?<br>
+                    Responda esse quiz para medir seu nível!!!
+                </div>
+
+                <div class="div_jogar">
+
+                    <button class="botao_jogar" onclick="jogar()">JOGAR</button>
+
+
+                </div>
+
+
 
 
             </div>
@@ -61,36 +73,41 @@
 
 
                 <div class="div_alternativas">
-                    <button onclick="errou()">Microsoft</button>
-                    <button onclick="acertou()">Mojang</button>
-                    <button onclick="errou()">Java Corporation</button>
-                    <button onclick="errou()">Minecraft Studio</button>
-                    <button onclick="errou()">Javajang</button>
+                    <button class="botao_alternativa" onclick="errou()">Microsoft</button>
+                    <button class="botao_alternativa" onclick="acertou()">Mojang</button>
+                    <button class="botao_alternativa" onclick="errou()">Java Corporation</button>
+                    <button class="botao_alternativa" onclick="errou()">Minecraft Studio</button>
+                    <button class="botao_alternativa" onclick="errou()">Javajang</button>
 
 
                 </div>
 
-        
+
 
             </div>
 
             <div id="pergunta2" class="div_perguntas">
-                <div class="titulo_pergunta">2 - Qual o crafting da espada de diamante? <img class="img_espada_diamante" src="img_quiz/espada_diamante-removebg-preview.png"></div>
+                <div class="titulo_pergunta">2 - Qual o crafting da espada de diamante? <img class="img_espada_diamante"
+                        src="img_quiz/espada_diamante-removebg-preview.png"></div>
                 <div class="div_alternativas">
 
-                    <img onclick="errou()" src="img_quiz/crafting_enxada_diamante (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_enxada_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_pa_diamante (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_picareta_diamante (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="acertou()" src="img_quiz/crafting_espada_diamante (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_machado_diamante (1).jpg" alt="" class="imgs_alternativas">
-                   
+                    <img onclick="errou()" src="img_quiz/crafting_picareta_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="acertou()" src="img_quiz/crafting_espada_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_machado_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+
 
                 </div>
 
-        
 
 
-               
+
+
 
 
             </div>
@@ -99,29 +116,31 @@
                 <div class="titulo_pergunta">3 - Qual o nome do criador do Minecraft?</div>
                 <div class="div_alternativas">
 
-                    <button onclick="errou()">Shigeru Miyamoto</button>
-                    <button onclick="errou()">Brandão</button>
-                    <button onclick="errou()">Joseff Notch</button>
-                    <button onclick="acertou()">Markus Persson</button>
-                    <button onclick="errou()">Bill Gates</button>
-                   
+                    <button class="botao_alternativa" onclick="errou()">Shigeru Miyamoto</button>
+                    <button class="botao_alternativa" onclick="errou()">Brandão</button>
+                    <button class="botao_alternativa" onclick="errou()">Joseff Notch</button>
+                    <button class="botao_alternativa" onclick="acertou()">Markus Persson</button>
+                    <button class="botao_alternativa" onclick="errou()">Bill Gates</button>
+
 
                 </div>
-               
+
 
 
             </div>
 
             <div id="pergunta4" class="div_perguntas">
-                <div class="titulo_pergunta">4 - Qual o crafting do arco e flecha? <img class="img_arco" src="img_quiz/arco-removebg-preview.png"></div>
+                <div class="titulo_pergunta">4 - Qual o crafting do arco e flecha? <img class="img_arco"
+                        src="img_quiz/arco-removebg-preview.png"></div>
                 <div class="div_alternativas">
 
-                    <img onclick="acertou()" src="img_quiz/crafting_arco_flecha (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="acertou()" src="img_quiz/crafting_arco_flecha (1).jpg" alt=""
+                        class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_besta (1).jpg" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_flecha (1).jpg" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_la (1).jpg" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_vara_pesca (1).jpg" alt="" class="imgs_alternativas">
-                   
+
 
                 </div>
 
@@ -135,12 +154,12 @@
                 <div class="titulo_pergunta">5 - Qual o nome do personagem principal do Minecraft?</div>
                 <div class="div_alternativas">
 
-                    <button onclick="errou()">Taylor</button>
-                    <button onclick="acertou()">Steve</button>
-                    <button onclick="errou()">Bob</button>
-                    <button onclick="errou()">Alex</button>
-                    <button onclick="errou()">Jesse</button>
-                   
+                    <button class="botao_alternativa" onclick="errou()">Taylor</button>
+                    <button class="botao_alternativa" onclick="acertou()">Steve</button>
+                    <button class="botao_alternativa" onclick="errou()">Bob</button>
+                    <button class="botao_alternativa" onclick="errou()">Alex</button>
+                    <button class="botao_alternativa" onclick="errou()">Jesse</button>
+
 
 
                 </div>
@@ -149,7 +168,8 @@
             </div>
 
             <div id="pergunta6" class="div_perguntas">
-                <div class="titulo_pergunta">6 - Qual o crafting do escudo? <img class="img_escudo" src="img_quiz/escudo"></div>
+                <div class="titulo_pergunta">6 - Qual o crafting do escudo? <img class="img_escudo"
+                        src="img_quiz/escudo"></div>
                 <div class="div_alternativas">
 
                     <img onclick="errou()" src="img_quiz/crafting_bancada (1).jpg" alt="" class="imgs_alternativas">
@@ -157,7 +177,7 @@
                     <img onclick="errou()" src="img_quiz/crafting_junkbox (1).png" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_barril (1).png" alt="" class="imgs_alternativas">
                     <img onclick="acertou()" src="img_quiz/crafting_escudo (1).jpg" alt="" class="imgs_alternativas">
-                   
+
 
                 </div>
 
@@ -170,12 +190,12 @@
                 <div class="titulo_pergunta">7 - Qual o atual minério mais difícil de ser encontrado no Minecraft?</div>
                 <div class="div_alternativas">
 
-                    <button onclick="errou()">Ouro</button>
-                    <button onclick="errou()">Esmeralda</button>
-                    <button onclick="errou()">Diamante</button>
-                    <button onclick="errou()">Cobre</button>
-                    <button onclick="acertou()">Netherite</button>
-                    
+                    <button class="botao_alternativa" onclick="errou()">Ouro</button>
+                    <button class="botao_alternativa" onclick="errou()">Esmeralda</button>
+                    <button class="botao_alternativa" onclick="errou()">Diamante</button>
+                    <button class="botao_alternativa" onclick="errou()">Cobre</button>
+                    <button class="botao_alternativa" onclick="acertou()">Netherite</button>
+
 
                 </div>
 
@@ -184,15 +204,18 @@
 
 
             <div id="pergunta8" class="div_perguntas">
-                <div class="titulo_pergunta">8 - Qual o crafting da sela? <img class="img_espada_diamante" src="img_quiz/sela"></div>
+                <div class="titulo_pergunta">8 - Qual o crafting da sela? <img class="img_espada_diamante"
+                        src="img_quiz/sela"></div>
                 <div class="div_alternativas">
 
-                    <img onclick="errou()" src="img_quiz/crafting_armadura_cavalo (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_capacete_couro (1).png" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_armadura_cavalo (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_capacete_couro (1).png" alt=""
+                        class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/crafting_bolsa (1).png" alt="" class="imgs_alternativas">
-                    <button onclick="errou()">Não existe sela no Minecraft</button>
-                    <button onclick="acertou()">Não existe crafting para a sela</button>
-                   
+                    <button class="botao_alternativa" onclick="errou()">Não existe sela no Minecraft</button>
+                    <button class="botao_alternativa" onclick="acertou()">Não existe crafting para a sela</button>
+
 
                 </div>
 
@@ -201,7 +224,8 @@
             </div>
 
             <div id="pergunta9" class="div_perguntas">
-                <div class="titulo_pergunta">9 - Qual dos itens a seguir só pode ser encontrado na dimensão do The End(Fim)?</div>
+                <div class="titulo_pergunta">9 - Qual dos itens a seguir só pode ser encontrado na dimensão do The
+                    End(Fim)?</div>
                 <div class="div_alternativas">
 
                     <img onclick="errou()" src="img_quiz/enderpeal.png" alt="" class="imgs_alternativas">
@@ -209,7 +233,7 @@
                     <img onclick="acertou()" src="img_quiz/elytra" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/besta" alt="" class="imgs_alternativas">
                     <img onclick="errou()" src="img_quiz/maca" alt="" class="imgs_alternativas">
-                   
+
 
                 </div>
 
@@ -220,14 +244,22 @@
             </div>
 
             <div id="pergunta10" class="div_perguntas">
-                <div class="titulo_pergunta">10 - Qual das afirmativas abaixo está <span style="color:red;">ERRADA</span>?</div>
+                <div class="titulo_pergunta">10 - Qual das afirmativas abaixo está <span
+                        style="color:red;">ERRADA</span>?</div>
                 <div class="div_alternativas">
 
-                    <button onclick="errou()">Não é possível dormir no Nether e no The End!</button>
-                    <button onclick="errou()">Antes de ganhar o nome "Minecraft", o jogo se chamava "Cave Game"!</button>
-                    <button onclick="errou()">O ouro é tão ruim que a espada de ouro da o mesmo dano da espada de madeira!</button>
-                    <button onclick="errou()">Você pode curar aldeões zumbis!</button>
-                    <button onclick="acertou()">Só existem dois modos de jogo disponíveis, o criativo e o sobrevivência!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">Não é possível dormir no Nether e no The
+                        End!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">Antes de ganhar o nome "Minecraft", o jogo
+                        se chamava "Cave
+                        Game"!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">O ouro é tão ruim que a espada de ouro da
+                        o mesmo dano da espada de
+                        madeira!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">Você pode curar aldeões zumbis!</button>
+                    <button class="botao_alternativa_maior" onclick="acertou()">Só existem dois modos de jogo
+                        disponíveis, o criativo e o
+                        sobrevivência!</button>
 
                 </div>
 
@@ -236,8 +268,39 @@
             </div>
 
             <div id="resultado_quiz">
+                <div id="div_qtd_acertos"></div>
 
-                <button>Recomeçar</button>
+                <div id="div_graficos">
+
+                    <div class="tamanho_grafico">
+
+                        <canvas id="myChart"></canvas>
+
+                    </div>
+
+
+                    <div class="tamanho_grafico">
+
+                        <canvas id="myChart2"></canvas>
+
+                    </div>
+
+
+
+
+                </div>
+                <div id="div_recomecar">
+
+                    <span id="span_media"></span>
+
+
+                    <button onclick="recomecar()">Recomeçar</button>
+
+
+
+                </div>
+
+
             </div>
 
 
@@ -407,6 +470,12 @@
 
             acertos++
 
+
+            for (var contador = 0; contador <= acertos; contador++) {
+
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+            }
+
         }
 
 
@@ -425,7 +494,7 @@
 
             pergunta2.style.display = "block"
 
-            
+
 
 
         } else if (pergunta2.style.display == "block") {
@@ -434,7 +503,7 @@
 
             pergunta3.style.display = "block"
 
-           
+
 
 
         } else if (pergunta3.style.display == "block") {
@@ -443,7 +512,7 @@
 
             pergunta4.style.display = "block"
 
-            
+
 
 
         } else if (pergunta4.style.display == "block") {
@@ -452,7 +521,7 @@
 
             pergunta5.style.display = "block"
 
-            
+
 
 
         } else if (pergunta5.style.display == "block") {
@@ -461,7 +530,7 @@
 
             pergunta6.style.display = "block"
 
-            
+
 
 
 
@@ -471,7 +540,7 @@
 
             pergunta7.style.display = "block"
 
-            
+
 
 
 
@@ -482,7 +551,7 @@
 
             pergunta8.style.display = "block"
 
-            
+
 
 
 
@@ -494,7 +563,7 @@
 
             pergunta9.style.display = "block"
 
-           
+
 
 
 
@@ -505,7 +574,7 @@
 
             pergunta10.style.display = "block"
 
-            
+
 
 
         } else {
@@ -515,7 +584,14 @@
             resultado_quiz.style.display = "block"
 
 
-            
+
+            for (var contador = 0; contador <= acertos; contador++) {
+
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+            }
+
+
+
 
         }
 
@@ -528,14 +604,99 @@
 
 
 
+    function recomecar() {
+        acertos = 0
+
+        resultado_quiz.style.display = "none"
+
+        pergunta1.style.display = "block"
+    }
 
 
 
+
+
+
+    const labels = [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+
+    ];
+    const labels2 = [
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        '10',
+    ];
+
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Quantidade de pessoas por pontuação',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 5, 10, 15, 20, 25, 30, 35, 40],
+        },
+
+
+
+        ]
+    };
+    const data2 = {
+        labels: labels2,
+        datasets: [{
+            label: 'Quantidade de pessoas por pontuação',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 5, 10, 15, 20, 25, 30, 35, 40],
+        },
+
+
+
+        ]
+    };
+
+
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data2,
+        options: {}
+    };
 
 </script>
 
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 
-
-
-
-
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>

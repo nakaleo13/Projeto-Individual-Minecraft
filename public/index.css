@@ -1,6 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Red+Hat+Display:wght@800&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Red+Hat+Display:wght@800&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Red+Hat+Display:wght@800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,900;1,900&family=Quicksand:wght@400;700&display=swap');
 
 html{
     scroll-behavior: smooth;
@@ -118,12 +118,13 @@ a{
     align-items: center;
     position: relative;
     padding: 12px 0;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'quicksand';
     font-weight: 700;
     color:white;
     text-decoration: none;
     cursor: pointer;
-    border: 3px solid #070711;
+    border: 5px solid #070711;
     transition: .5s;
     box-shadow:  0 8px 32px 0 rgba(0, 0, 0, 0.767) ;
 
@@ -251,8 +252,8 @@ height:100% ;
 
 .titulo_inicial{
     font-size: 30px;
-    font-family: 'quicksand';
-    font-weight: 700;
+    font-family:'Noto Sans';
+    font-weight:900;
     text-align: center;
     margin-top:30px ;
     text-transform: uppercase;
@@ -415,7 +416,8 @@ height:100% ;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.767);
     color: black;
     font-size: 30px ;
-    font-weight: 700;
+    font-family: 'Noto Sans';
+    font-weight: 900;
     border: solid 3px rgba(28, 30, 48, 0.973);
     
 
@@ -435,13 +437,16 @@ height:100% ;
 
 .div_texto{
 
-    width:700px;
+    width:750px;
     height:400px;
     background-color: rgba(255, 255, 255, 0.808);
     border: solid 5px black;
     padding: 10px;
     font-size: 20px;
+    font-family: 'Noto Sans';
+    font-weight: 400;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.767);
+    
     
     
 
@@ -533,7 +538,7 @@ height:100% ;
     background-color: rgba(255, 255, 255, 0.808);
     border: solid 5px black;
     font-size: 20px;
-    font-weight: 400;
+  
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.767);
     transition: all 0.6s  cubic-bezier(0.165, 0.84, 0.44, 1);
 
@@ -581,6 +586,7 @@ height:100% ;
 }
 
 .titulo_curiosidade{
+    
     font-weight: 700;
     margin-top: 10px;
     text-align: center;
@@ -588,6 +594,8 @@ height:100% ;
 }
 
 .texto_curiosidade{
+    font-family: 'Noto Sans';
+    font-weight: 400;
     font-size: 15px;
     padding: 10px;
     text-align: center;
