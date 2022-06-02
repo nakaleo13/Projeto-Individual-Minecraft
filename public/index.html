@@ -34,7 +34,7 @@
 
             </ul>
 
-            <a href="login.html" target="_blank"><button class="botao_entrar">Entrar</button></a>
+            <button onclick="entrar_login()" class="botao_entrar">Entrar</button>
 
         </div>
 
@@ -286,6 +286,13 @@
 </html>
 
 <script>
+
+
+function entrar_login(){
+  
+    window.location = "login.html";
+                
+}
 
     let count = 1;
     document.getElementById("radio1").checked = true;
