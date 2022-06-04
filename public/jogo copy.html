@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funcoes.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -24,8 +25,8 @@
             </div>
 
             <div class="menu_baixo">
-                <button id="botao_sumir" class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
-                <button id="botao_sumir2" class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
+                <button class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
+                <button class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
                 <button onclick="sair_menu()" class="botao_menu">Sair</button>
             </div>
 
@@ -85,7 +86,7 @@
 
                 </div>
 
-
+             
 
 
 
@@ -244,6 +245,8 @@
 
 
 
+
+
             </div>
 
             <div id="pergunta10" class="div_perguntas">
@@ -275,9 +278,16 @@
 
                 <div id="div_graficos">
 
-                    <canvas id="myChart2"></canvas>
+                    <div class="tamanho_grafico">
+
+                        <canvas id="myChart2"></canvas>
+
+                    </div>
 
                 </div>
+
+                
+
 
 
                 <div id="div_recomecar">
@@ -285,7 +295,7 @@
                     <span id="span_media">A média de acertos dos usuários é de X.XX</span>
 
 
-
+                    <button onclick="recomecar()">Recomeçar</button>
 
 
 
@@ -310,7 +320,7 @@
 
 <script>
 
-    function sair_menu() {
+    function sair_menu(){
         window.location = "index.html"
 
     }
@@ -350,10 +360,7 @@
 
         div_quiz.style.display = "none"
 
-        resultado_quiz.style.display = "none"
-
         div_lenda.style.display = "block"
-
 
 
     }
@@ -364,11 +371,7 @@
 
         div_lenda.style.display = "none"
 
-        resultado_quiz.style.display = "none"
-
         div_quiz.style.display = "block"
-
-        acertos = 0
 
 
 
@@ -376,9 +379,6 @@
 
     function jogar() {
         div_quiz.style.display = "none"
-
-        botao_sumir.style.display = "none"
-        botao_sumir2.style.display = "none"
 
         pergunta1.style.display = "block"
 
@@ -390,12 +390,7 @@
 
         if (pergunta1.style.display == "block") {
 
-
-
-
             pergunta1.style.display = "none"
-
-
 
             pergunta2.style.display = "block"
 
@@ -485,13 +480,10 @@
         } else {
 
 
-            botao_sumir.style.display = "block"
-            botao_sumir2.style.display = "block"
-
 
             pergunta10.style.display = "none"
 
-            resultado_quiz.style.display = "flex"
+            resultado_quiz.style.display = "block"
 
 
             acertos++
@@ -518,11 +510,9 @@
 
         if (pergunta1.style.display == "block") {
 
-
             pergunta1.style.display = "none"
 
             pergunta2.style.display = "block"
-
 
 
 
@@ -609,13 +599,11 @@
 
         } else {
 
-            botao_sumir.style.display = "block"
-            botao_sumir2.style.display = "block"
 
 
             pergunta10.style.display = "none"
 
-            resultado_quiz.style.display = "flex"
+            resultado_quiz.style.display = "block"
 
 
 
@@ -675,7 +663,7 @@
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
 
-
+    
 
     function obterDadosGrafico() {
 
@@ -690,6 +678,7 @@
                     console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                     resposta.reverse();
 
+                    // plotarGrafico(resposta);
                     plotarGrafico2(resposta);
                 });
             } else {
@@ -705,12 +694,177 @@
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    
+                    yAxisID: 'y-quantidadeAcertos',
+                    label: 'Acertos',
+                    borderColor: '#FFF',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                
+                },
+            {}
+            ]
+        };
+        console.log(resposta)
+        console.log('Essa é minha resposta')
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.quantidadeJogadas);
+            dados.datasets[0].data.push(registro.quantidadeAcertos);
+        }
+        console.log("dados.labels")
+        console.log(dados.labels)
+        console.log("dados.datasets[0].data")
+        console.log(dados.datasets[0].data)
+
+        console.log(JSON.stringify(dados));
+
+        // var ctx = canvas_grafico.getContext('2d');
+        // window.grafico_linha = Chart.Bar(ctx, {
+        //     data: dados,
+        //     options: {
+        //         responsive: true,
+        //         animation: { duration: 500 },
+        //         hoverMode: 'index',
+        //         stacked: false,
+        //         title: {
+        //             display: false,
+        //             text: 'Dados capturados'
+        //         },
+        //         scales: {
+        //             yAxes: [{
+        //                 type: 'bar',
+        //                 display: true,
+        //                 position: 'left',
+        //                 id: 'y-temperatura',
+        //                 ticks: {
+        //                     beginAtZero: true,
+        //                     max: 100,
+        //                     min: 0
+        //                 }
+        //             }, {
+        //                 type: 'bar',
+        //                 display: false,
+        //                 position: 'right',
+        //                 id: 'y-umidade',
+        //                 ticks: {
+        //                     beginAtZero: true,
+        //                     max: 100,
+        //                     min: 0
+        //                 },
+
+        //                 gridLines: {
+        //                     drawOnChartArea: false,
+        //                 },
+        //             }],
+        //         }
+        //     }
+        // });
+        var ctx = canvas_grafico.getContext('2d');
+        window.grafico_linha = Chart.Line(ctx, {
+            data: dados,
+            options: {
+                responsive: true,
+                animation: { duration: 500 },
+                hoverMode: 'index',
+                stacked: false,
+                title: {
+                    display: false,
+                    text: 'Dados capturados'
+                },
+                scales: {
+                    yAxes: [{
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        id: 'y-temperatura',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        }
+                    }, {
+                        type: 'linear',
+                        display: false,
+                        position: 'right',
+                        id: 'y-umidade',
+                        ticks: {
+                            beginAtZero: true,
+                            max: 100,
+                            min: 0
+                        },
+
+                        gridLines: {
+                            drawOnChartArea: false,
+                        },
+                    }],
+                }
+            }
+        });
+
+
+        
+    }
 
     // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
     // buscando a última medida inserida em tabela contendo as capturas, 
 
     //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
     //     Para ajustar o "select", ajuste o comando sql em src/models
+   
+
+
+
+    function recomecar() {
+        acertos = 0
+
+        resultado_quiz.style.display = "none"
+
+        pergunta1.style.display = "block"
+    }
+
+
+
+
+
+
+   
+
+
+    const labels = [
+     
+    ];
+  
+    const data = {
+      labels: labels,
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [],
+      }]
+    };
+  
+    const config = {
+      type: 'bar',
+      data: data,
+      options: {}
+    };
+
+
+
+    const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
 
 
 
@@ -719,55 +873,52 @@
 
 
 
-
-
-    function plotarGrafico2(resposta) {
+  function plotarGrafico2(resposta) {
         console.log('iniciando plotagem do gráfico2...');
-
+        
         console.log(resposta)
         console.log('Essa é minha resposta')
-
+        
 
         let labels2 = [
-
+            
         ];
+        
+    let data2 = {
+      labels: labels2,
+      datasets: [{
+        label: 'Quantidade de pessoas por acerto',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: [],
+      }]
+    };
+  
+    let config = {
+      type: 'bar',
+      data: data2,
+      options: {}
+    };
 
-        let data2 = {
-            labels: labels2,
-            datasets: [{
-                label: 'Quantidade de pessoas por acerto',
-                backgroundColor: 'green',
-                borderColor: 'green',
-                data: [],
-            }]
-        };
-
-        let config = {
-            type: 'bar',
-            data: data2,
-            options: {}
-        };
-
-        for (i = 0; i < resposta.length; i++) {
+    for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
-            labels2.push(registro.quantidadeAcertos);
-            data2.datasets[0].data.push(registro.quantidadeJogadas)
-
+        labels2.push(registro.quantidadeAcertos);
+        data2.datasets[0].data.push(registro.quantidadeJogadas)
+            
         }
         console.log("labels")
         console.log(labels2)
         console.log("data2.datasets[0].data")
         console.log(data2.datasets[0].data)
 
+        
+    const myChart = new Chart(
+    document.getElementById('myChart2'),
+    config
+  );
 
-        const myChart = new Chart(
-            document.getElementById('myChart2'),
-            config
-        );
 
-
-
+        
     }
 
-
-// </script>
+  </script>

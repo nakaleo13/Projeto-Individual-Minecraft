@@ -8,6 +8,8 @@
     <title>Minecraft | Login</title>
     <link rel="stylesheet" href="login.css">
     <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+    
     
 </head>
 
@@ -22,13 +24,13 @@
 
             <li><a href="index.html">Inicial</a></li>
 
-            <li><a href="index.html,#o_que_e">O que é Minecraft?</a></li>
+            <li><a href="index.html#o_que_e">O que é Minecraft?</a></li>
 
-            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
 
-            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="index.html#curiosidades">Curiosidades</a></li>
 
-            <li><a href="#construções">Construções</a></li>
+            <li><a href="index.html#construcoes">Construções</a></li>
 
         </ul>
 
@@ -105,7 +107,12 @@ function validacao_email() {
         var senhaVar = input_senha.value
 
         if (emailVar == "" || senhaVar == "") {
-            alert('Todos os campos são obrigatórios')
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Preencha todos os campos!'
+            
+            })
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();

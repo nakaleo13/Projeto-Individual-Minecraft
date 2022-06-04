@@ -8,6 +8,8 @@
     <title>Minecraft | Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
     <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+    
 </head>
 
 <body>
@@ -21,13 +23,13 @@
 
             <li><a href="index.html">Inicial</a></li>
 
-            <li><a href="#o_que_e">O que é Minecraft?</a></li>
+            <li><a href="index.html#o_que_e">O que é Minecraft?</a></li>
 
-            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
 
-            <li><a href="#curiosidades">Curiosidades</a></li>
+            <li><a href="index.html#curiosidades">Curiosidades</a></li>
 
-            <li><a href="#construcoes">Construções</a></li>
+            <li><a href="index.html#construcoes">Construções</a></li>
 
 
         </ul>
@@ -45,14 +47,12 @@
                 <div class="div_esquerda">
 
                     <span class="span_tipo_nome">Nome:</span>
-                    <input id="input_nome" type="text" placeholder="João Pereira Da Silva"
-                        onkeyup="validacao_nome()">
+                    <input id="input_nome" type="text" placeholder="João Pereira Da Silva" onkeyup="validacao_nome()">
                     <span class="validacao_errada" id="nome_errado"></span>
 
 
                     <span class="span_tipo_email">E-mail:</span>
-                    <input id="input_email" type="text" placeholder="username@gmail.com"
-                        onkeyup="validacao_email()">
+                    <input id="input_email" type="text" placeholder="username@gmail.com" onkeyup="validacao_email()">
                     <span class="validacao_errada" id="email_errado"></span>
 
                 </div>
@@ -76,7 +76,7 @@
 
                 <button class="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
 
-               
+
                 <span class="span_iniciar">Já tem uma conta? <a class="link_iniciar" href="login.html">Iniciar
                         sessão</a></span>
             </div>
@@ -99,9 +99,6 @@
     var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
     //Expressão Senha
     var senhaReg = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/;
-
-   
-
 
 
 
@@ -153,17 +150,17 @@
     }
 
 
-    function validacao_confirmar(){
+    function validacao_confirmar() {
         var confirmar_senha = input_confirmar_senha.value
         var senha = input_senha.value;
 
-        if(confirmar_senha == senha){
+        if (confirmar_senha == senha) {
 
             confirmar_errado.innerHTML = '';
             input_confirmar_senha.style.border = '5px solid green';
             input_confirmar_senha.style.color = "green";
 
-        }else{
+        } else {
 
             confirmar_errado.innerHTML =
                 '<b style="color: red;"> A senha deve conter pelo menos 6 dígitos</b>';
@@ -187,12 +184,18 @@
         var confirmacaoSenhaVar = input_confirmar_senha.value;
 
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            alert('Preencha todos os campos!')
+        
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Preencha todos os campos!'
+            
+            })
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
             // finalizarAguardar();
-            return false;
+            // return false;
         }
         else {
             // setInterval(sumirMensagem, 5000)

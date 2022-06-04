@@ -173,6 +173,8 @@ body {
     height: 95%;
     display: none;
     flex-direction: column;
+    justify-content: center;
+    align-items:center ;
 
 
 
@@ -192,22 +194,16 @@ body {
 }
 
 #div_graficos {
-    width: 100%;
+    margin-top:10%;
+    width: 70%;
     height: 45%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
     align-items: center;
-
+    justify-content:center;
 
 }
 
 
-.tamanho_grafico{
-
-    width: 45%;
-    height: 70%;
-}
 
 
 
@@ -261,7 +257,7 @@ body {
 
 .div_alternativas {
     width: 100%;
-    height: 75%;
+    height: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -273,7 +269,7 @@ body {
 
 .imgs_alternativas {
     width: 15%;
-    height: 31%;
+    height: 40%;
     cursor: pointer;
     border: solid gray 2px;
     padding: 5px;
@@ -282,7 +278,7 @@ body {
 
 .botao_alternativa{
     width:150px;
-    height: 160px;
+    height: 161px;
     text-align: center;
     font-family: 'quicksand';
     font-size: 25px;
@@ -301,3 +297,5 @@ body {
 
 
 }
+
+

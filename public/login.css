@@ -2,7 +2,7 @@
 
 body{
     background-image: url(img/NetherUpdateArtwork.webp);
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     position: relative;
     background-size: cover;
@@ -12,6 +12,7 @@ body{
     font-family: 'quicksand';
     margin: 0;
     padding: 0;
+    overflow: hidden;
 
 }
 

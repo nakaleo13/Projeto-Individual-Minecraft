@@ -6,7 +6,7 @@ function buscarUltimasMedidas(idAquario, limite_linhas) {
 
    
      if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
-        instrucaoSql = `select qtd_acertos as quantidadeAcertos , count(qtd_acertos) as quantidadeJogadas from resultado_quiz group by qtd_acertos;`;
+        instrucaoSql = `select qtd_acertos as quantidadeAcertos , count(qtd_acertos) as quantidadeJogadas from resultado_quiz group by qtd_acertos order by qtd_acertos desc;`;
     } else {
 
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");

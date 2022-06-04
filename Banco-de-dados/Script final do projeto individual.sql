@@ -20,9 +20,10 @@ select * from usuarios;
 
 select * from resultado_quiz;
 
+select round(avg(qtd_acertos),2) from resultado_quiz;
+
+select qtd_acertos from resultado_quiz;
 
 
-
-
-
+select qtd_acertos quantidadeAcertos,count(qtd_acertos) quantidadeJogadas from resultado_quiz group by qtd_acertos;
 
