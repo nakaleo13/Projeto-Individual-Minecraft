@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft | Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+    
+    
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="img_minecraft" src="img/Minecraft-logotipo-removebg-preview.png"></a>
+        </div>
+
+        <ul class="navbar">
+
+            <li><a href="index.html">Inicial</a></li>
+
+            <li><a href="index.html#o_que_e">O que é Minecraft?</a></li>
+
+            <li><a href="index.html#sobre">Sobre</a></li>
+
+            <li><a href="index.html#curiosidades">Curiosidades</a></li>
+
+            <li><a href="index.html#construcoes">Construções</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <div class="div_card">
+        <div class="div_titulo"><span>Iniciar Sessão</span></div>
+        <div class="formulario">
+
+
+
+            <span class="span_tipo">E-mail:</span>
+            <input id="input_email" type="text" placeholder="username@gmail.com" onkeyup="validacao_email()">
+            <span class="validacao_errada" id="email_errado"></span>
+            
+
+            <span class="span_tipo">Senha:</span>
+            <input id="input_senha" type="password" placeholder="*****">
+            <div class="div_baixo">
+            <div id="div_aguardar"></div>
+            <div id="div_erros_login"></div>
+           
+
+            <div class="div_botao"><button class="botao_iniciar" onclick="entrar()">Iniciar sessão</button></div>
+
+            
+
+            <span class="span_cadastro">Não possui um cadastro ainda? <span class="span_cadastrar" onclick="entrar_cadastro()">Cadastre-se agora!</span></span>
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+</body>
+
+</html>
+
+<script>
+
+    function entrar_cadastro(){
+        window.location = "cadastro.html"
+
+    
+    }
+
+var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
+
+function validacao_email() {
+
+        var email = input_email.value;
+        // Verifica email
+        if (email.match(emailReg)) {
+            email_errado.innerHTML = '';
+            input_email.style.border = '5px solid green ';
+            input_email.style.color =" green";
+        } else {
+            email_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
+            input_email.style.color = "red";
+            input_email.style.border = '5px solid red' ;
+        }
+    }
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = input_email.value
+        var senhaVar = input_senha.value
+
+        if (emailVar == "" || senhaVar == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Preencha todos os campos!'
+            
+            })
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }else{
+            // setInterval(sumirMensagem, 5000)
+
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+
+                        setTimeout(function () {
+                            window.location = "jogo.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+
+        }
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+
+
+</script>

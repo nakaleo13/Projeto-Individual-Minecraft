@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="jogo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/funcoes.js"></script>
+    <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+
+</head>
+
+<body onload="validarSessao()">
+
+    <div class="div_tela" id="tela">
+
+        <div class="menu">
+
+            <div class="menu_cima">
+                <span>Bem vindo <span id="span_nome_usuario"></span>!</span>
+            </div>
+
+            <div class="menu_baixo">
+                <button id="botao_sumir" class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
+                <button id="botao_sumir2" class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
+                <button onclick="sair_menu()" class="botao_menu">Sair</button>
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <div class="conteudo">
+
+            <div id="div_lenda">
+
+                <div class="titulo_herobrine">HEROBRINE</div>
+                <div class="subtitulo_herobrine">A Lenda que aterroriza os jogadores de Minecraft</div>
+
+                <div></div>
+
+            </div>
+
+
+
+
+
+
+
+            <div id="div_quiz">
+
+                <div class="titulo_pergunta">Será que você realmente conhece o Minecraft tão bem assim?<br>
+                    Responda esse quiz para medir seu nível!!!
+                </div>
+
+                <div class="div_jogar">
+
+                    <button class="botao_jogar" onclick="jogar()">JOGAR</button>
+
+
+                </div>
+
+
+
+
+            </div>
+
+            <div id="pergunta1" class="div_perguntas">
+                <div class="titulo_pergunta">1 - Qual empresa desenvolveu o Minecraft?</div>
+
+
+                <div class="div_alternativas">
+                    <button class="botao_alternativa" onclick="errou()">Microsoft</button>
+                    <button class="botao_alternativa" onclick="acertou()">Mojang</button>
+                    <button class="botao_alternativa" onclick="errou()">Java Corporation</button>
+                    <button class="botao_alternativa" onclick="errou()">Minecraft Studio</button>
+                    <button class="botao_alternativa" onclick="errou()">Javajang</button>
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div id="pergunta2" class="div_perguntas">
+                <div class="titulo_pergunta">2 - Qual o crafting da espada de diamante? <img class="img_espada_diamante"
+                        src="img_quiz/espada_diamante-removebg-preview.png"></div>
+                <div class="div_alternativas">
+
+                    <img onclick="errou()" src="img_quiz/crafting_enxada_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_pa_diamante (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_picareta_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="acertou()" src="img_quiz/crafting_espada_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_machado_diamante (1).jpg" alt=""
+                        class="imgs_alternativas">
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+            <div id="pergunta3" class="div_perguntas">
+                <div class="titulo_pergunta">3 - Qual o nome do criador do Minecraft?</div>
+                <div class="div_alternativas">
+
+                    <button class="botao_alternativa" onclick="errou()">Shigeru Miyamoto</button>
+                    <button class="botao_alternativa" onclick="errou()">Brandão</button>
+                    <button class="botao_alternativa" onclick="errou()">Joseff Notch</button>
+                    <button class="botao_alternativa" onclick="acertou()">Markus Persson</button>
+                    <button class="botao_alternativa" onclick="errou()">Bill Gates</button>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="pergunta4" class="div_perguntas">
+                <div class="titulo_pergunta">4 - Qual o crafting do arco e flecha? <img class="img_arco"
+                        src="img_quiz/arco-removebg-preview.png"></div>
+                <div class="div_alternativas">
+
+                    <img onclick="acertou()" src="img_quiz/crafting_arco_flecha (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_besta (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_flecha (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_la (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_vara_pesca (1).jpg" alt="" class="imgs_alternativas">
+
+
+                </div>
+
+
+
+
+
+            </div>
+
+            <div id="pergunta5" class="div_perguntas">
+                <div class="titulo_pergunta">5 - Qual o nome do personagem principal do Minecraft?</div>
+                <div class="div_alternativas">
+
+                    <button class="botao_alternativa" onclick="errou()">Taylor</button>
+                    <button class="botao_alternativa" onclick="acertou()">Steve</button>
+                    <button class="botao_alternativa" onclick="errou()">Bob</button>
+                    <button class="botao_alternativa" onclick="errou()">Alex</button>
+                    <button class="botao_alternativa" onclick="errou()">Jesse</button>
+
+
+
+                </div>
+
+
+            </div>
+
+            <div id="pergunta6" class="div_perguntas">
+                <div class="titulo_pergunta">6 - Qual o crafting do escudo? <img class="img_escudo"
+                        src="img_quiz/escudo"></div>
+                <div class="div_alternativas">
+
+                    <img onclick="errou()" src="img_quiz/crafting_bancada (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_bau (1).jpg" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_junkbox (1).png" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_barril (1).png" alt="" class="imgs_alternativas">
+                    <img onclick="acertou()" src="img_quiz/crafting_escudo (1).jpg" alt="" class="imgs_alternativas">
+
+
+                </div>
+
+
+
+            </div>
+
+
+            <div id="pergunta7" class="div_perguntas">
+                <div class="titulo_pergunta">7 - Qual o atual minério mais difícil de ser encontrado no Minecraft?</div>
+                <div class="div_alternativas">
+
+                    <button class="botao_alternativa" onclick="errou()">Ouro</button>
+                    <button class="botao_alternativa" onclick="errou()">Esmeralda</button>
+                    <button class="botao_alternativa" onclick="errou()">Diamante</button>
+                    <button class="botao_alternativa" onclick="errou()">Cobre</button>
+                    <button class="botao_alternativa" onclick="acertou()">Netherite</button>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div id="pergunta8" class="div_perguntas">
+                <div class="titulo_pergunta">8 - Qual o crafting da sela? <img class="img_espada_diamante"
+                        src="img_quiz/sela"></div>
+                <div class="div_alternativas">
+
+                    <img onclick="errou()" src="img_quiz/crafting_armadura_cavalo (1).jpg" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_capacete_couro (1).png" alt=""
+                        class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/crafting_bolsa (1).png" alt="" class="imgs_alternativas">
+                    <button class="botao_alternativa" onclick="errou()">Não existe sela no Minecraft</button>
+                    <button class="botao_alternativa" onclick="acertou()">Não existe crafting para a sela</button>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="pergunta9" class="div_perguntas">
+                <div class="titulo_pergunta">9 - Qual dos itens a seguir só pode ser encontrado na dimensão do The
+                    End(Fim)?</div>
+                <div class="div_alternativas">
+
+                    <img onclick="errou()" src="img_quiz/enderpeal.png" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/totem.jpg.crdownload" alt="" class="imgs_alternativas">
+                    <img onclick="acertou()" src="img_quiz/elytra" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/besta" alt="" class="imgs_alternativas">
+                    <img onclick="errou()" src="img_quiz/maca" alt="" class="imgs_alternativas">
+
+
+                </div>
+
+
+
+            </div>
+
+            <div id="pergunta10" class="div_perguntas">
+                <div class="titulo_pergunta">10 - Qual das afirmativas abaixo está <span
+                        style="color:red;">ERRADA</span>?</div>
+                <div class="div_alternativas">
+
+                    <button class="botao_alternativa_maior" onclick="errou()">Não é possível dormir no Nether e no The
+                        End!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">Antes de ganhar o nome "Minecraft", o jogo
+                        se chamava "Cave
+                        Game"!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">O ouro é tão ruim que a espada de ouro da
+                        o mesmo dano da espada de
+                        madeira!</button>
+                    <button class="botao_alternativa_maior" onclick="errou()">Você pode curar aldeões zumbis!</button>
+                    <button class="botao_alternativa_maior" onclick="acertou()">Só existem dois modos de jogo
+                        disponíveis, o criativo e o
+                        sobrevivência!</button>
+
+                </div>
+
+
+
+            </div>
+
+            <div id="resultado_quiz">
+                <div id="div_qtd_acertos"></div>
+
+                <div id="div_graficos">
+
+                    <canvas id="myChart2"></canvas>
+
+                </div>
+
+
+                <div id="div_recomecar">
+
+                    <span id="span_media">A média de acertos dos usuários é de X.XX</span>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+
+    function sair_menu() {
+        window.location = "index.html"
+
+    }
+
+
+
+
+    span_nome_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+
+
+
+
+
+    function mudar_imagem() {
+        var imagens = ['url(./img/fundo1.jpg)', 'url(./img/fundo2.png)', 'url(./img/fundo3.jpg)', 'url(./img/fundo4.jpg)', 'url(./img/fundo5.jpg)', 'url(./img/fundo6.jpg)', 'url(./img/fundo7.jpg)', 'url(./img/fundo8.png)']
+
+        var aleatorio = Math.floor(Math.random(1) * (8))
+
+
+        tela.style.backgroundImage = imagens[aleatorio];
+
+
+    }
+
+    setInterval(
+        function () {
+            mudar_imagem()
+        }, 3000);
+
+
+    var acertos = 0
+
+    function aparecer_lenda() {
+
+
+
+        div_quiz.style.display = "none"
+
+        resultado_quiz.style.display = "none"
+
+        div_lenda.style.display = "block"
+
+
+
+    }
+
+
+    function aparecer_quiz() {
+
+
+        div_lenda.style.display = "none"
+
+        resultado_quiz.style.display = "none"
+
+        div_quiz.style.display = "block"
+
+        acertos = 0
+
+
+
+    }
+
+    function jogar() {
+        div_quiz.style.display = "none"
+
+        botao_sumir.style.display = "none"
+        botao_sumir2.style.display = "none"
+
+        pergunta1.style.display = "block"
+
+
+
+    }
+
+    function acertou() {
+
+        if (pergunta1.style.display == "block") {
+
+
+
+
+            pergunta1.style.display = "none"
+
+
+
+            pergunta2.style.display = "block"
+
+            acertos++
+
+
+        } else if (pergunta2.style.display == "block") {
+
+            pergunta2.style.display = "none"
+
+            pergunta3.style.display = "block"
+
+            acertos++
+
+
+        } else if (pergunta3.style.display == "block") {
+
+            pergunta3.style.display = "none"
+
+            pergunta4.style.display = "block"
+
+            acertos++
+
+
+        } else if (pergunta4.style.display == "block") {
+
+            pergunta4.style.display = "none"
+
+            pergunta5.style.display = "block"
+
+            acertos++
+
+
+        } else if (pergunta5.style.display == "block") {
+
+            pergunta5.style.display = "none"
+
+            pergunta6.style.display = "block"
+
+            acertos++
+
+
+
+        } else if (pergunta6.style.display == "block") {
+
+            pergunta6.style.display = "none"
+
+            pergunta7.style.display = "block"
+
+            acertos++
+
+
+
+
+        } else if (pergunta7.style.display == "block") {
+
+            pergunta7.style.display = "none"
+
+            pergunta8.style.display = "block"
+
+            acertos++
+
+
+
+
+
+        } else if (pergunta8.style.display == "block") {
+
+            pergunta8.style.display = "none"
+
+            pergunta9.style.display = "block"
+
+            acertos++
+
+
+
+
+        } else if (pergunta9.style.display == "block") {
+
+            pergunta9.style.display = "none"
+
+            pergunta10.style.display = "block"
+
+            acertos++
+
+
+        } else {
+
+
+            botao_sumir.style.display = "block"
+            botao_sumir2.style.display = "block"
+
+
+            pergunta10.style.display = "none"
+
+            resultado_quiz.style.display = "flex"
+
+
+            acertos++
+
+
+            for (var contador = 0; contador <= acertos; contador++) {
+
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+            }
+
+            armazenar_resultado()
+
+        }
+
+
+
+
+
+
+    }
+
+
+    function errou() {
+
+        if (pergunta1.style.display == "block") {
+
+
+            pergunta1.style.display = "none"
+
+            pergunta2.style.display = "block"
+
+
+
+
+
+        } else if (pergunta2.style.display == "block") {
+
+            pergunta2.style.display = "none"
+
+            pergunta3.style.display = "block"
+
+
+
+
+        } else if (pergunta3.style.display == "block") {
+
+            pergunta3.style.display = "none"
+
+            pergunta4.style.display = "block"
+
+
+
+
+        } else if (pergunta4.style.display == "block") {
+
+            pergunta4.style.display = "none"
+
+            pergunta5.style.display = "block"
+
+
+
+
+        } else if (pergunta5.style.display == "block") {
+
+            pergunta5.style.display = "none"
+
+            pergunta6.style.display = "block"
+
+
+
+
+
+        } else if (pergunta6.style.display == "block") {
+
+            pergunta6.style.display = "none"
+
+            pergunta7.style.display = "block"
+
+
+
+
+
+
+        } else if (pergunta7.style.display == "block") {
+
+            pergunta7.style.display = "none"
+
+            pergunta8.style.display = "block"
+
+
+
+
+
+
+
+        } else if (pergunta8.style.display == "block") {
+
+            pergunta8.style.display = "none"
+
+            pergunta9.style.display = "block"
+
+
+
+
+
+
+        } else if (pergunta9.style.display == "block") {
+
+            pergunta9.style.display = "none"
+
+            pergunta10.style.display = "block"
+
+
+
+
+        } else {
+
+            botao_sumir.style.display = "block"
+            botao_sumir2.style.display = "block"
+
+
+            pergunta10.style.display = "none"
+
+            resultado_quiz.style.display = "flex"
+
+
+
+            for (var contador = 0; contador <= acertos; contador++) {
+
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+            }
+
+            armazenar_resultado()
+
+        }
+
+
+    }
+
+    function armazenar_resultado() {
+        var idUsuarioVar = sessionStorage.ID_USUARIO;
+        var resultadoVar = acertos;
+
+        fetch("/usuarios/armazenarResultado", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                resultadoServer: resultadoVar,
+                idUsuarioServer: idUsuarioVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log("Resultado armazenado com sucesso")
+                obterDadosGrafico()
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+
+    let proximaAtualizacao;
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
+
+    function obterDadosGrafico() {
+
+
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico2(resposta);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
+    // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
+    // buscando a última medida inserida em tabela contendo as capturas, 
+
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+
+
+
+
+
+
+
+
+
+
+    function plotarGrafico2(resposta) {
+        console.log('iniciando plotagem do gráfico2...');
+
+        console.log(resposta)
+        console.log('Essa é minha resposta')
+
+
+        let labels2 = [
+
+        ];
+
+        let data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Quantidade de pessoas por acerto',
+                backgroundColor: 'green',
+                borderColor: 'green',
+                data: [],
+            }]
+        };
+
+        let config = {
+            type: 'bar',
+            data: data2,
+            options: {}
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels2.push(registro.quantidadeAcertos);
+            data2.datasets[0].data.push(registro.quantidadeJogadas)
+
+        }
+        console.log("labels")
+        console.log(labels2)
+        console.log("data2.datasets[0].data")
+        console.log(data2.datasets[0].data)
+
+
+        const myChart = new Chart(
+            document.getElementById('myChart2'),
+            config
+        );
+
+
+
+    }
+
+
+// </script>

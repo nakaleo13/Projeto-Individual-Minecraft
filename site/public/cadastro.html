@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft | Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <script src="js/funcoes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+    
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <a href="index.html"><img class="img_minecraft" src="img/Minecraft-logotipo-removebg-preview.png"></a>
+        </div>
+
+        <ul class="navbar">
+
+            <li><a href="index.html">Inicial</a></li>
+
+            <li><a href="index.html#o_que_e">O que é Minecraft?</a></li>
+
+            <li><a href="index.html#sobre">Sobre</a></li>
+
+            <li><a href="index.html#curiosidades">Curiosidades</a></li>
+
+            <li><a href="index.html#construcoes">Construções</a></li>
+
+
+        </ul>
+
+
+    </div>
+
+    <div class="div_card">
+
+        <div class="div_titulo"><span>Cadastro</span></div>
+        <div class="formulario">
+
+            <div class="div_inputs">
+
+                <div class="div_esquerda">
+
+                    <span class="span_tipo_nome">Nome:</span>
+                    <input id="input_nome" type="text" placeholder="João Pereira Da Silva" onkeyup="validacao_nome()">
+                    <span class="validacao_errada" id="nome_errado"></span>
+
+
+                    <span class="span_tipo_email">E-mail:</span>
+                    <input id="input_email" type="text" placeholder="username@gmail.com" onkeyup="validacao_email()">
+                    <span class="validacao_errada" id="email_errado"></span>
+
+                </div>
+
+                <div class="div_direita">
+
+                    <span class="span_tipo_senha">Senha:</span>
+                    <input id="input_senha" type="password" placeholder="*****" onkeyup="validacao_senha()">
+                    <span class="validacao_errada" id="senha_errado"></span>
+
+                    <span class="span_tipo_confirmar">Confirmar senha:</span>
+                    <input id="input_confirmar_senha" type="password" placeholder="*****"
+                        onkeyup="validacao_confirmar()">
+                    <span class="validacao_errada" id="confirmar_errado"></span>
+
+                </div>
+            </div>
+
+            <div class="div_baixo">
+                <div id="div_aguardar"></div>
+
+                <button class="botao_cadastro" onclick="cadastrar()">Cadastrar</button>
+
+
+                <span class="span_iniciar">Já tem uma conta? <a class="link_iniciar" href="login.html">Iniciar
+                        sessão</a></span>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    // Expressões Regulares
+    //Expressão Nome
+    var nomeReg = /^[À-úA-z ]{3,35}$/;
+    // Expressão Email
+    var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
+    //Expressão Senha
+    var senhaReg = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/;
+
+
+
+
+    function validacao_nome() {
+        var nome = input_nome.value;
+        // Verifica Nome
+        if (nome.match(nomeReg)) {
+            nome_errado.innerHTML = '';
+            input_nome.style.border = '5px solid green ';
+            input_nome.style.color = " green";
+        } else {
+            nome_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
+            input_nome.style.color = "red";
+            input_nome.style.border = '5px solid red';
+
+        }
+    }
+
+    // Validacao email
+    function validacao_email() {
+        var email = input_email.value;
+        // Verifica email
+        if (email.match(emailReg)) {
+            email_errado.innerHTML = '';
+            input_email.style.border = '5px solid green ';
+            input_email.style.color = " green";
+        } else {
+            email_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
+            input_email.style.color = "red";
+            input_email.style.border = '5px solid red';
+        }
+    }
+
+    // Validacao Senha
+    function validacao_senha() {
+        var senha = input_senha.value;
+        // Verifica senha
+        if (senha.match(senhaReg)) {
+            senha_errado.innerHTML = '';
+            input_senha.style.border = '5px solid green';
+            input_senha.style.color = "green";
+        } else {
+            senha_errado.innerHTML =
+                '<b style="color: red;"> A senha deve conter pelo menos 6 dígitos</b>';
+            input_senha.style.color = "red";
+            input_senha.style.border = '5px solid red ';
+        }
+    }
+
+
+    function validacao_confirmar() {
+        var confirmar_senha = input_confirmar_senha.value
+        var senha = input_senha.value;
+
+        if (confirmar_senha == senha) {
+
+            confirmar_errado.innerHTML = '';
+            input_confirmar_senha.style.border = '5px solid green';
+            input_confirmar_senha.style.color = "green";
+
+        } else {
+
+            confirmar_errado.innerHTML =
+                '<b style="color: red;"> A senha deve conter pelo menos 6 dígitos</b>';
+            input_confirmar_senha.style.color = "red";
+            input_confirmar_senha.style.border = '5px solid red ';
+
+
+
+        }
+    }
+
+    function cadastrar() {
+
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var nomeVar = input_nome.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
+        var confirmacaoSenhaVar = input_confirmar_senha.value;
+
+        if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
+        
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Preencha todos os campos!'
+            
+            })
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            // finalizarAguardar();
+            // return false;
+        }
+        else {
+            // setInterval(sumirMensagem, 5000)
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                // cardErro.style.display = "block";
+
+                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+                // finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            // finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+
+
+
+
+
+
+
+
+
+
+</script>
