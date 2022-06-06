@@ -125,11 +125,48 @@ function armazenarResultado(req, res) {
 
 
 
+function listarTop10Jogadores(req, res) {
+    usuarioModel.listarTop10Jogadores()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
+function mostrarMediaAcertos(req, res) {
+    usuarioModel.mostrarMediaAcertos()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
     listar,
     testar,
-    armazenarResultado
+    armazenarResultado,
+    listarTop10Jogadores,
+    mostrarMediaAcertos
 }

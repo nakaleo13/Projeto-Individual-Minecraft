@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="cadastro.css">
     <script src="js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 
     <div class="div_card">
 
-        <div class="div_titulo"><span>Cadastro</span></div>
+        <div class="div_titulo">Cadastro</div>
         <div class="formulario">
 
             <div class="div_inputs">
@@ -97,8 +98,9 @@
     var nomeReg = /^[À-úA-z ]{3,35}$/;
     // Expressão Email
     var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
+
     //Expressão Senha
-    var senhaReg = /^(?=.*[0-9]{3})(?=.*[A-z]{1})[A-z0-9]{6,}$/;
+    var senhaReg = /^([a-z0-9]{5,8})$/;
 
 
 
@@ -108,12 +110,12 @@
         // Verifica Nome
         if (nome.match(nomeReg)) {
             nome_errado.innerHTML = '';
-            input_nome.style.border = '5px solid green ';
+            input_nome.style.borderBottom = '2px solid green ';
             input_nome.style.color = " green";
         } else {
-            nome_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
+            nome_errado.innerHTML = '<b style="color: red;"> O nome deve conter pelo menos 3 letras </b>';
             input_nome.style.color = "red";
-            input_nome.style.border = '5px solid red';
+            input_nome.style.borderBottom = '2px solid red';
 
         }
     }
@@ -124,12 +126,12 @@
         // Verifica email
         if (email.match(emailReg)) {
             email_errado.innerHTML = '';
-            input_email.style.border = '5px solid green ';
+            input_email.style.borderBottom = '2px solid green ';
             input_email.style.color = " green";
         } else {
             email_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
             input_email.style.color = "red";
-            input_email.style.border = '5px solid red';
+            input_email.style.borderBottom = '2px solid red';
         }
     }
 
@@ -139,13 +141,13 @@
         // Verifica senha
         if (senha.match(senhaReg)) {
             senha_errado.innerHTML = '';
-            input_senha.style.border = '5px solid green';
+            input_senha.style.borderBottom = '2px solid green';
             input_senha.style.color = "green";
         } else {
             senha_errado.innerHTML =
-                '<b style="color: red;"> A senha deve conter pelo menos 6 dígitos</b>';
+                '<b style="color: red;"> A senha deve ter no mínimo 5 e no máximo 8 dígitos</b>';
             input_senha.style.color = "red";
-            input_senha.style.border = '5px solid red ';
+            input_senha.style.borderBottom = '2px solid red ';
         }
     }
 
@@ -154,18 +156,26 @@
         var confirmar_senha = input_confirmar_senha.value
         var senha = input_senha.value;
 
-        if (confirmar_senha == senha) {
+        if (confirmar_senha == "") {
+            confirmar_errado.innerHTML =
+                '<b style="color: red;"> A confirmação de senha precisa estar igual a senha</b>';
+            input_confirmar_senha.style.color = "red";
+            input_confirmar_senha.style.borderBottom = '2px solid red ';
+
+        }
+
+        else if (confirmar_senha == senha) {
 
             confirmar_errado.innerHTML = '';
-            input_confirmar_senha.style.border = '5px solid green';
+            input_confirmar_senha.style.borderBottom = '2px solid green';
             input_confirmar_senha.style.color = "green";
 
         } else {
 
             confirmar_errado.innerHTML =
-                '<b style="color: red;"> A senha deve conter pelo menos 6 dígitos</b>';
+                '<b style="color: red;"> A confirmação de senha precisa estar igual a senha</b>';
             input_confirmar_senha.style.color = "red";
-            input_confirmar_senha.style.border = '5px solid red ';
+            input_confirmar_senha.style.borderBottom = '2px solid red ';
 
 
 
@@ -183,13 +193,15 @@
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_confirmar_senha.value;
 
+
+
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-        
+
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Preencha todos os campos!'
-            
+
             })
             // cardErro.style.display = "block"
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
@@ -197,47 +209,70 @@
             // finalizarAguardar();
             // return false;
         }
-        else {
+        else if (nomeVar.match(nomeReg) && emailVar.match(emailReg) && senhaVar.match(senhaReg) && confirmacaoSenhaVar == senhaVar) {
+
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Cadastro realizado com sucesso!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
             // setInterval(sumirMensagem, 5000)
+            div_aguardar.innerHTML = `<img src="img/gif-de-loading-unscreen.gif" style= "width: 145px; height: 60px;">`
+
+
+            // Enviando o valor da nova input
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    nomeServer: nomeVar,
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
+
+                    limparFormulario();
+                    // finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+            return false;
+
+        } else {
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Verifique os campos preenchidos!'
+
+            })
+
+
         }
 
-        // Enviando o valor da nova input
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                // cardErro.style.display = "block";
-
-                // mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
-
-                limparFormulario();
-                // finalizarAguardar();
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-            // finalizarAguardar();
-        });
-
-        return false;
     }
 
     // function sumirMensagem() {

@@ -17,7 +17,7 @@ body{
 }
 
 .header{
-    background-color: rgba(0, 0, 0, 0.719);
+    background-color: black;
     height:18vh;
     display: flex;
     align-items: center;
@@ -36,7 +36,6 @@ body{
 }
 
 .logo{
-    margin-left: 60px;
     background-repeat: no-repeat;
     width: 20%;
     height: 82%;
@@ -55,6 +54,7 @@ body{
     width:65%;
     height:100%;
     display: flex;
+    transition: 0.6s;
 }
 
 .img_minecraft:after{
@@ -67,7 +67,7 @@ body{
 }
 
 .img_minecraft:hover{
-    transform: scale(1.20,1.20);
+    transform: scale(1.15,1.15);
     transition: all 0.3s;
 }
 
@@ -77,7 +77,7 @@ body{
     width: 65%;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     list-style: none;
     
     
@@ -93,6 +93,7 @@ a{
     color: white;
     font-size: 20px;
     display: flex;
+    transition: 0.6s;
 }
 
 .navbar a:after{
@@ -106,7 +107,8 @@ a{
 
 .navbar a:hover{
     transform: scale(1.20,1.20);
-    color: #4CAF50;
+    color: #40db45;
+    transition: all 0.3s;
 
 
 }
@@ -118,9 +120,8 @@ a{
     background-color: rgba(255, 255, 255, 0.808);
     width: 550px;
     height: 500px;
-    border-radius: 20px;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.767);
-    border: black solid 5px;
+    border: white solid 2px;
 
 
     
@@ -162,10 +163,11 @@ a{
     height: 20px;
     font-size: 22px;
     padding: 10px;
-    border: 5px solid #310101 ;
-    background-color: #71313173;
+    border: 0;
+    border-bottom: 2px solid #180230 ;
+    background-color: transparent;
     margin-top: 10px;
-    
+    outline: none;
    
 
 
@@ -176,9 +178,11 @@ a{
     height: 20px;
     font-size: 22px;
     padding: 10px;
-    border: 5px solid #310101 ;
-    background-color: #71313173;
+    border: 0;
+    border-bottom: 2px solid #180230 ;
+    background-color: transparent;
     margin-top: 10px;
+    outline: none;
 
 
 }
@@ -204,56 +208,68 @@ a{
 }
 
 .botao_iniciar{
-    width: 150px;
+    width: 170px;
     height: 60px;
-    background-color: #310101;
-    background-position: center;
+    margin-right:20px ;
+    background-color: blueviolet;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     padding: 12px 0;
     font-family: 'quicksand';
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     color:white;
     text-decoration: none;
     cursor: pointer;
-    border: 5px solid black;
+    border: 3px solid #070711;
     transition: .5s;
+    
 
+
+    
+}
+
+
+.botao_iniciar:hover{
+    background: blueviolet url(img/pixel.png);
+    background-size: 100%;
+    transition-delay: .8s;
+    animation: animate1 .8s steps(8) forwards;
+    
 }
 
 
 
+@keyframes animate1{
+    0%{
+        background-position-y: 0 ;
+    }
 
-.span_cadastro{
-    margin-top: 10px;
-    font-size: 21px;
-    margin-bottom: 5px;
-
+    100%{
+        background-position-y: -250px ;
+    }
 }
 
-.link_cadastrar a{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    display: flex;
-}
-
-.link_cadastrar a:after{
+.botao_iniciar:after{
     content: '';
     position: absolute;
+    width: 100%;
+    height: 100%;
     transition: all 0.6s  cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: -1;
-}
-
-.link_cadastrar a:hover{
-    transform: scale(1.20,1.20);
-    color: #4CAF50;
 
 
 }
+
+.botao_iniciar:hover{
+    transform: scale(1.10,1.10);
+    transition: 0.3s;
+
+
+}
+
 
 .div_baixo{
     width: 100%;
@@ -267,8 +283,6 @@ a{
 
 
 
-
-
 .div_botao{
     width: 100%;
     height: 60px;
@@ -278,9 +292,35 @@ a{
     margin-top: 15px;
 }
 
-.span_cadastrar{
-    color: purple;
+
+
+
+
+.span_cadastro{
+    margin-top: 10px;
+    font-size: 21px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.link_cadastrar{
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    transition: 0.3s;
+    color: rgb(129, 15, 129);
     cursor: pointer;
+}
+
+
+.link_cadastrar:hover{
+    color: #2ea131;
+
+
 }
 
 

@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funcoes.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+    
 
 </head>
 
@@ -26,7 +27,8 @@
             <div class="menu_baixo">
                 <button id="botao_sumir" class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
                 <button id="botao_sumir2" class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
-                <button onclick="sair_menu()" class="botao_menu">Sair</button>
+                <button id="botao_sumir3" class="botao_menu" onclick="aparecer_ranking()">Ranking do Quiz</button>
+                <button onclick="sair_menu()" class="botao_sair">Sair</button>
             </div>
 
 
@@ -282,14 +284,47 @@
 
                 <div id="div_recomecar">
 
-                    <span id="span_media">A média de acertos dos usuários é de X.XX</span>
+                    <span id="span_media">A média de acertos dos usuários é de <span id="span_media_acertos"></span></span>
+
+                </div>
 
 
+            </div>
 
+
+            <div id="div_ranking">
+
+                <div class="titulo_ranking">  
+                    
+                    <h1>Ranking do Quiz</h1>
+                
+                </div>
+
+
+                <div class="tabela_ranking">
+                    <table id="ranking">
+                        <tr>
+                            <th>Colocação</th>
+                            <th>Nome</th>
+                            <th>Pontuação</th>
+                        </tr>
+
+                      
+
+                
+
+                    </table>
 
 
 
                 </div>
+
+              
+
+
+                
+
+
 
 
             </div>
@@ -352,8 +387,30 @@
 
         resultado_quiz.style.display = "none"
 
+        div_ranking.style.display = "none"
+
         div_lenda.style.display = "block"
 
+
+
+    }
+
+    function aparecer_ranking(){
+
+    
+
+        div_quiz.style.display = "none"
+
+        resultado_quiz.style.display = "none"
+
+        div_lenda.style.display = "none"
+
+        div_ranking.style.display = "flex"
+
+
+        // window.location.reload()
+
+       
 
 
     }
@@ -365,6 +422,9 @@
         div_lenda.style.display = "none"
 
         resultado_quiz.style.display = "none"
+
+        div_ranking.style.display = "none"
+
 
         div_quiz.style.display = "block"
 
@@ -714,13 +774,6 @@
 
 
 
-
-
-
-
-
-
-
     function plotarGrafico2(resposta) {
         console.log('iniciando plotagem do gráfico2...');
 
@@ -766,8 +819,59 @@
         );
 
 
-
     }
+
+
+
+    fetch(`usuarios/listarTop10Jogadores`)
+        .then(res => res.json()).then(res =>{
+            for(var contador = 0; contador<10;contador++){
+
+                var tabela = document.getElementById('ranking')
+                var linha = document.createElement('tr')
+                var campo1 = document.createElement('td')
+                var campo2 = document.createElement('td')
+                var campo3 = document.createElement('td')
+
+                campo1.innerHTML = `${contador+1}`
+                campo2.innerHTML = `${res[contador].nomeUsuario}`
+                campo3.innerHTML = `${res[contador].quantidadeAcertos}`
+
+                linha.appendChild(campo1)
+                linha.appendChild(campo2)
+                linha.appendChild(campo3)
+
+                tabela.appendChild(linha)
+
+
+            }
+
+            
+
+
+
+        });
+
+
+        
+
+    fetch(`usuarios/mostrarMediaAcertos`)
+        .then(res => res.json()).then(res =>{
+
+
+                var media_acertos = document.createElement('span_media_acertos')
+
+                span_media_acertos.innerHTML = `${res.mediaAcertos}`
+
+
+                
+               
+
+        
+
+        });
+
+
 
 
 // </script>

@@ -24,4 +24,16 @@ router.post("/armazenarResultado", function (req, res) {
     usuarioController.armazenarResultado(req, res);
 })
 
+
+router.get("/listarTop10Jogadores", function (req, res) {
+    usuarioController.listarTop10Jogadores(req, res);
+});
+
+
+router.get("/mostrarMediaAcertos", function (req, res) {
+    usuarioController.mostrarMediaAcertos(req, res);
+});
+
+
+
 module.exports = router;

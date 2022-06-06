@@ -35,7 +35,7 @@ body {
 
 
 .menu_cima {
-    height: 40%;
+    height: 30%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -43,11 +43,16 @@ body {
     justify-content: space-around;
     font-size: 25px;
     font-weight: 700;
+    font-family: 'Noto Sans';
 
 }
 
+#span_nome_usuario{
+    color:rgb(28, 197, 28)
+}
+
 .menu_baixo {
-    height: 60%;
+    height: 70%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -60,12 +65,46 @@ body {
     width: 200px;
     height: 70px;
     padding: 10px;
+    border: 2px solid white;
     font-family: 'quicksand';
     font-weight: 700;
     font-size: 20px;
+    border-radius: 10px;
     margin-top: 30px;
     cursor: pointer;
+    background-color:springgreen;
+    color:rgb(0, 0, 0);
+    transition: 0.3s;
+
     
+}
+
+.botao_menu:hover{
+    transform: scale(1.20);
+
+}
+
+
+
+.botao_sair{
+    width:120px;
+    height: 50px;
+    border-radius: 10px;
+    margin-top:30px;
+    font-family: 'quicksand';
+    font-weight: 700;
+    font-size:20px;
+    background-color:lightcyan;
+    cursor: pointer;
+    border: 2px white solid;
+    transition: 0.3s;
+
+
+}
+
+.botao_sair:hover{
+    transform: scale(1.20);
+
 }
 
 .conteudo {
@@ -105,6 +144,47 @@ body {
 }
 
 
+#div_ranking{
+    background-color: white;
+    width: 95%;
+    height: 95%;
+    display: none;
+    flex-direction: column;
+    
+
+}
+
+
+.titulo_ranking{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+
+}
+
+.tabela_ranking{
+    width:100%;
+    height: 85%;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+
+table{
+    width: 70%;
+
+    height: 70%;
+}
 
 
 

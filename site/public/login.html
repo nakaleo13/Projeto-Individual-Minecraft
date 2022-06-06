@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="login.css">
     <script src="js/funcoes.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.8/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     
 </head>
@@ -49,7 +50,8 @@
             
 
             <span class="span_tipo">Senha:</span>
-            <input id="input_senha" type="password" placeholder="*****">
+            <input id="input_senha" type="password" placeholder="*****" onkeyup="validacao_senha()">
+            <span class="validacao_errada" id="senha_errado"></span>
             <div class="div_baixo">
             <div id="div_aguardar"></div>
             <div id="div_erros_login"></div>
@@ -59,7 +61,7 @@
 
             
 
-            <span class="span_cadastro">Não possui um cadastro ainda? <span class="span_cadastrar" onclick="entrar_cadastro()">Cadastre-se agora!</span></span>
+            <span class="span_cadastro">Não possui um cadastro ainda? <span class="link_cadastrar" onclick="entrar_cadastro()">Cadastre-se agora!</span></span>
 
             </div>
         </div>
@@ -85,20 +87,40 @@
 
 var emailReg = /^([À-úA-z0-9._-]+@[a-z0-9._-]+\.[A-z0-9_-]+)$/;
 
+var senhaReg = /^([a-z0-9]{5,8})$/;
+
 function validacao_email() {
 
         var email = input_email.value;
         // Verifica email
         if (email.match(emailReg)) {
             email_errado.innerHTML = '';
-            input_email.style.border = '5px solid green ';
+            input_email.style.borderBottom = '2px solid green ';
             input_email.style.color =" green";
         } else {
             email_errado.innerHTML = '<b style="color: red;"> Verifique o campo preenchido </b>';
             input_email.style.color = "red";
-            input_email.style.border = '5px solid red' ;
+            input_email.style.borderBottom = '2px solid red' ;
         }
     }
+
+
+    function validacao_senha() {
+        var senha = input_senha.value;
+        // Verifica senha
+        if (senha.match(senhaReg)) {
+            senha_errado.innerHTML = '';
+            input_senha.style.borderBottom = '2px solid green';
+            input_senha.style.color = "green";
+        } else {
+            senha_errado.innerHTML =
+                '<b style="color: red;"> A senha deve ter no mínimo 5 e no máximo 8 dígitos</b>';
+            input_senha.style.color = "red";
+            input_senha.style.borderBottom = '2px solid red ';
+        }
+    }
+
+
 
     function entrar() {
         aguardar();
@@ -117,8 +139,11 @@ function validacao_email() {
             // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             finalizarAguardar();
             return false;
-        }else{
+
+        }else if(emailVar.match(emailReg) && senhaVar.match(senhaReg)){
             // setInterval(sumirMensagem, 5000)
+
+            div_aguardar.innerHTML = `<img src="img/gif-de-loading-unscreen.gif" style= "width: 145px; height: 60px;">`
 
 
             fetch("/usuarios/autenticar", {
@@ -164,6 +189,15 @@ function validacao_email() {
             })
 
             return false;
+
+        }else{
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Usuário não encontrado!'
+            
+            })
 
         }
     }
