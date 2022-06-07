@@ -33,4 +33,7 @@ inner join resultado_quiz on usuarios.idUsuario = resultado_quiz.fk_usuario orde
 
 
 select round(avg(qtd_acertos),2) mediaAcertos from resultado_quiz;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6ec5c280bbb917ebb47a74fcb24aa483f0f5bc7
