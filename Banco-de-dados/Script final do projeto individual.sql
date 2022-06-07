@@ -27,3 +27,10 @@ select qtd_acertos from resultado_quiz;
 
 select qtd_acertos quantidadeAcertos,count(qtd_acertos) quantidadeJogadas from resultado_quiz group by qtd_acertos;
 
+
+select usuarios.nomeUsuario, resultado_quiz.qtd_acertos quantidadeAcertos from usuarios 
+inner join resultado_quiz on usuarios.idUsuario = resultado_quiz.fk_usuario order by qtd_acertos desc;
+
+
+select round(avg(qtd_acertos),2) mediaAcertos from resultado_quiz;
+

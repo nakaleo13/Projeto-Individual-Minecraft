@@ -20,6 +20,29 @@ body{
     
 
 }
+/* 
+
+::-webkit-scrollbar {
+    width: 18px;
+    
+  }
+  
+
+  ::-webkit-scrollbar-track {
+    background:gray;
+    
+  }
+  
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(80, 20, 20);
+    border-radius: 20px;
+  }
+  
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(35, 223, 35);
+  } */
 
 
 .header{

@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Minecraft | Jogo</title>
     <link rel="stylesheet" href="jogo.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/funcoes.js"></script>
     <script type="text/javascript" src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
-    
+    <link rel="shortcut icon" href="img/favicon-32x32.png" type="image/x-icon">
+
 
 </head>
 
@@ -21,11 +22,12 @@
         <div class="menu">
 
             <div class="menu_cima">
-                <span>Bem vindo <span id="span_nome_usuario"></span>!</span>
+                <span class="span_bem_vindo">Bem vindo <span id="span_nome_usuario"></span>!</span>
             </div>
 
             <div class="menu_baixo">
-                <button id="botao_sumir" class="botao_menu" onclick="aparecer_lenda()">A Lenda do Herobrine</button>
+                <button id="botao_carregamento" class="botao_menu" onclick="recarregar_pagina()">Voltar</button>
+                <button id="botao_sumir" class="botao_menu" onclick="aparecer_lenda()">Herobrine</button>
                 <button id="botao_sumir2" class="botao_menu" onclick="aparecer_quiz()">Jogar o Quiz</button>
                 <button id="botao_sumir3" class="botao_menu" onclick="aparecer_ranking()">Ranking do Quiz</button>
                 <button onclick="sair_menu()" class="botao_sair">Sair</button>
@@ -43,288 +45,61 @@
             <div id="div_lenda">
 
                 <div class="titulo_herobrine">HEROBRINE</div>
-                <div class="subtitulo_herobrine">A Lenda que aterroriza os jogadores de Minecraft</div>
+                <div class="subtitulo_herobrine">A Lenda que aterroriza os jogadores de Minecraft!</div>
 
-                <div></div>
+
+                <div class="conteudo_hero">
+
+                <div class="conteudo_herobrine"> De acordo com relatos de muitos jogadores que alegaram ter visto o Herobrine, ele seria um fantasma que foi adicionado a Minecraft como uma homenagem ao irmão falecido de Markus Persson, mais conhecido como Notch, o criador do game. O primeiro relato sobre a aparição do "fantasma" conta que durante a criação de um mapa no modo single-player, quando tudo parecia normal, o jogador viu algo se mexendo na densa neblina que se forma quando você joga com a renderização mínima. No momento, ele pensou que era uma vaca. Contudo, ao chegar mais perto, o jogador reparou que não era um animal, mas sim outro personagem, como se fosse outro player usando a skin padrão do Minecraft, mas, em seus olhos não havia nada, apenas um espaço branco. A primeira imagem a esquerda seria desse suposto primeiro aparecimento do herobrine. Não sabemos se a lenda é verdadeira ou mais uma brincadeira que surgiu na internet. Mas, claro, muitos jogadores já criaram mods para o game em que retratam essa história.
+
+                </div>
+
+                <div class="imagens_herobrine">
+
+                    <img class="imagens_lenda" src="img/aparicao herobrine.jpg" alt="">
+
+                    <img class="imagens_lenda" src="img/imagem_herobrine.webp" alt="">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <div id="div_quiz">
+
+            <div class="titulo_quiz">Será que você realmente conhece o Minecraft tão bem assim?<br>
+                Responda esse quiz para medir seu nível!!!
+            </div>
+
+            <div class="div_jogar">
+
+                <button class="botao_jogar" onclick="jogar()">JOGAR</button>
+
 
             </div>
 
 
 
 
+        </div>
 
+        <div id="pergunta1" class="div_perguntas">
+            <div class="titulo_pergunta">1 - Qual empresa desenvolveu o Minecraft?</div>
 
 
-            <div id="div_quiz">
-
-                <div class="titulo_pergunta">Será que você realmente conhece o Minecraft tão bem assim?<br>
-                    Responda esse quiz para medir seu nível!!!
-                </div>
-
-                <div class="div_jogar">
-
-                    <button class="botao_jogar" onclick="jogar()">JOGAR</button>
-
-
-                </div>
-
-
-
-
-            </div>
-
-            <div id="pergunta1" class="div_perguntas">
-                <div class="titulo_pergunta">1 - Qual empresa desenvolveu o Minecraft?</div>
-
-
-                <div class="div_alternativas">
-                    <button class="botao_alternativa" onclick="errou()">Microsoft</button>
-                    <button class="botao_alternativa" onclick="acertou()">Mojang</button>
-                    <button class="botao_alternativa" onclick="errou()">Java Corporation</button>
-                    <button class="botao_alternativa" onclick="errou()">Minecraft Studio</button>
-                    <button class="botao_alternativa" onclick="errou()">Javajang</button>
-
-
-                </div>
-
-
-
-
-
-            </div>
-
-            <div id="pergunta2" class="div_perguntas">
-                <div class="titulo_pergunta">2 - Qual o crafting da espada de diamante? <img class="img_espada_diamante"
-                        src="img_quiz/espada_diamante-removebg-preview.png"></div>
-                <div class="div_alternativas">
-
-                    <img onclick="errou()" src="img_quiz/crafting_enxada_diamante (1).jpg" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_pa_diamante (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_picareta_diamante (1).jpg" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="acertou()" src="img_quiz/crafting_espada_diamante (1).jpg" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_machado_diamante (1).jpg" alt=""
-                        class="imgs_alternativas">
-
-
-                </div>
-
-
-
-
-
-
-
-            </div>
-
-            <div id="pergunta3" class="div_perguntas">
-                <div class="titulo_pergunta">3 - Qual o nome do criador do Minecraft?</div>
-                <div class="div_alternativas">
-
-                    <button class="botao_alternativa" onclick="errou()">Shigeru Miyamoto</button>
-                    <button class="botao_alternativa" onclick="errou()">Brandão</button>
-                    <button class="botao_alternativa" onclick="errou()">Joseff Notch</button>
-                    <button class="botao_alternativa" onclick="acertou()">Markus Persson</button>
-                    <button class="botao_alternativa" onclick="errou()">Bill Gates</button>
-
-
-                </div>
-
-
-
-            </div>
-
-            <div id="pergunta4" class="div_perguntas">
-                <div class="titulo_pergunta">4 - Qual o crafting do arco e flecha? <img class="img_arco"
-                        src="img_quiz/arco-removebg-preview.png"></div>
-                <div class="div_alternativas">
-
-                    <img onclick="acertou()" src="img_quiz/crafting_arco_flecha (1).jpg" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_besta (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_flecha (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_la (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_vara_pesca (1).jpg" alt="" class="imgs_alternativas">
-
-
-                </div>
-
-
-
-
-
-            </div>
-
-            <div id="pergunta5" class="div_perguntas">
-                <div class="titulo_pergunta">5 - Qual o nome do personagem principal do Minecraft?</div>
-                <div class="div_alternativas">
-
-                    <button class="botao_alternativa" onclick="errou()">Taylor</button>
-                    <button class="botao_alternativa" onclick="acertou()">Steve</button>
-                    <button class="botao_alternativa" onclick="errou()">Bob</button>
-                    <button class="botao_alternativa" onclick="errou()">Alex</button>
-                    <button class="botao_alternativa" onclick="errou()">Jesse</button>
-
-
-
-                </div>
-
-
-            </div>
-
-            <div id="pergunta6" class="div_perguntas">
-                <div class="titulo_pergunta">6 - Qual o crafting do escudo? <img class="img_escudo"
-                        src="img_quiz/escudo"></div>
-                <div class="div_alternativas">
-
-                    <img onclick="errou()" src="img_quiz/crafting_bancada (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_bau (1).jpg" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_junkbox (1).png" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_barril (1).png" alt="" class="imgs_alternativas">
-                    <img onclick="acertou()" src="img_quiz/crafting_escudo (1).jpg" alt="" class="imgs_alternativas">
-
-
-                </div>
-
-
-
-            </div>
-
-
-            <div id="pergunta7" class="div_perguntas">
-                <div class="titulo_pergunta">7 - Qual o atual minério mais difícil de ser encontrado no Minecraft?</div>
-                <div class="div_alternativas">
-
-                    <button class="botao_alternativa" onclick="errou()">Ouro</button>
-                    <button class="botao_alternativa" onclick="errou()">Esmeralda</button>
-                    <button class="botao_alternativa" onclick="errou()">Diamante</button>
-                    <button class="botao_alternativa" onclick="errou()">Cobre</button>
-                    <button class="botao_alternativa" onclick="acertou()">Netherite</button>
-
-
-                </div>
-
-
-            </div>
-
-
-            <div id="pergunta8" class="div_perguntas">
-                <div class="titulo_pergunta">8 - Qual o crafting da sela? <img class="img_espada_diamante"
-                        src="img_quiz/sela"></div>
-                <div class="div_alternativas">
-
-                    <img onclick="errou()" src="img_quiz/crafting_armadura_cavalo (1).jpg" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_capacete_couro (1).png" alt=""
-                        class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/crafting_bolsa (1).png" alt="" class="imgs_alternativas">
-                    <button class="botao_alternativa" onclick="errou()">Não existe sela no Minecraft</button>
-                    <button class="botao_alternativa" onclick="acertou()">Não existe crafting para a sela</button>
-
-
-                </div>
-
-
-
-            </div>
-
-            <div id="pergunta9" class="div_perguntas">
-                <div class="titulo_pergunta">9 - Qual dos itens a seguir só pode ser encontrado na dimensão do The
-                    End(Fim)?</div>
-                <div class="div_alternativas">
-
-                    <img onclick="errou()" src="img_quiz/enderpeal.png" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/totem.jpg.crdownload" alt="" class="imgs_alternativas">
-                    <img onclick="acertou()" src="img_quiz/elytra" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/besta" alt="" class="imgs_alternativas">
-                    <img onclick="errou()" src="img_quiz/maca" alt="" class="imgs_alternativas">
-
-
-                </div>
-
-
-
-            </div>
-
-            <div id="pergunta10" class="div_perguntas">
-                <div class="titulo_pergunta">10 - Qual das afirmativas abaixo está <span
-                        style="color:red;">ERRADA</span>?</div>
-                <div class="div_alternativas">
-
-                    <button class="botao_alternativa_maior" onclick="errou()">Não é possível dormir no Nether e no The
-                        End!</button>
-                    <button class="botao_alternativa_maior" onclick="errou()">Antes de ganhar o nome "Minecraft", o jogo
-                        se chamava "Cave
-                        Game"!</button>
-                    <button class="botao_alternativa_maior" onclick="errou()">O ouro é tão ruim que a espada de ouro da
-                        o mesmo dano da espada de
-                        madeira!</button>
-                    <button class="botao_alternativa_maior" onclick="errou()">Você pode curar aldeões zumbis!</button>
-                    <button class="botao_alternativa_maior" onclick="acertou()">Só existem dois modos de jogo
-                        disponíveis, o criativo e o
-                        sobrevivência!</button>
-
-                </div>
-
-
-
-            </div>
-
-            <div id="resultado_quiz">
-                <div id="div_qtd_acertos"></div>
-
-                <div id="div_graficos">
-
-                    <canvas id="myChart2"></canvas>
-
-                </div>
-
-
-                <div id="div_recomecar">
-
-                    <span id="span_media">A média de acertos dos usuários é de <span id="span_media_acertos"></span></span>
-
-                </div>
-
-
-            </div>
-
-
-            <div id="div_ranking">
-
-                <div class="titulo_ranking">  
-                    
-                    <h1>Ranking do Quiz</h1>
-                
-                </div>
-
-
-                <div class="tabela_ranking">
-                    <table id="ranking">
-                        <tr>
-                            <th>Colocação</th>
-                            <th>Nome</th>
-                            <th>Pontuação</th>
-                        </tr>
-
-                      
-
-                
-
-                    </table>
-
-
-
-                </div>
-
-              
-
-
-                
-
-
+            <div class="div_alternativas">
+                <button class="botao_alternativa" onclick="errou()">Microsoft</button>
+                <button class="botao_alternativa" onclick="acertou()">Mojang</button>
+                <button class="botao_alternativa" onclick="errou()">Java Corporation</button>
+                <button class="botao_alternativa" onclick="errou()">Minecraft Studio</button>
+                <button class="botao_alternativa" onclick="errou()">Javajang</button>
 
 
             </div>
@@ -335,6 +110,249 @@
 
         </div>
 
+        <div id="pergunta2" class="div_perguntas">
+            <div class="titulo_pergunta">2 - Qual o crafting da espada de diamante? <img class="img_espada_diamante"
+                    src="img_quiz/espada_diamante-removebg-preview.png"></div>
+            <div class="div_alternativas">
+
+                <img onclick="errou()" src="img_quiz/crafting_enxada_diamante (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_pa_diamante (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_picareta_diamante (1).jpg" alt=""
+                    class="imgs_alternativas">
+                <img onclick="acertou()" src="img_quiz/crafting_espada_diamante (1).jpg" alt=""
+                    class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_machado_diamante (1).jpg" alt=""
+                    class="imgs_alternativas">
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+
+        <div id="pergunta3" class="div_perguntas">
+            <div class="titulo_pergunta">3 - Qual o nome do criador do Minecraft?</div>
+            <div class="div_alternativas">
+
+                <button class="botao_alternativa" onclick="errou()">Shigeru Miyamoto</button>
+                <button class="botao_alternativa" onclick="errou()">Brandão</button>
+                <button class="botao_alternativa" onclick="errou()">Joseff Notch</button>
+                <button class="botao_alternativa" onclick="acertou()">Markus Persson</button>
+                <button class="botao_alternativa" onclick="errou()">Bill Gates</button>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="pergunta4" class="div_perguntas">
+            <div class="titulo_pergunta">4 - Qual o crafting do arco e flecha? <img class="img_arco"
+                    src="img_quiz/arco-removebg-preview.png"></div>
+            <div class="div_alternativas">
+
+                <img onclick="acertou()" src="img_quiz/crafting_arco_flecha (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_besta (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_flecha (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_la (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_vara_pesca (1).jpg" alt="" class="imgs_alternativas">
+
+
+            </div>
+
+
+
+
+
+        </div>
+
+        <div id="pergunta5" class="div_perguntas">
+            <div class="titulo_pergunta">5 - Qual o nome do personagem principal do Minecraft?</div>
+            <div class="div_alternativas">
+
+                <button class="botao_alternativa" onclick="errou()">Taylor</button>
+                <button class="botao_alternativa" onclick="acertou()">Steve</button>
+                <button class="botao_alternativa" onclick="errou()">Bob</button>
+                <button class="botao_alternativa" onclick="errou()">Alex</button>
+                <button class="botao_alternativa" onclick="errou()">Jesse</button>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div id="pergunta6" class="div_perguntas">
+            <div class="titulo_pergunta">6 - Qual o crafting do escudo? <img class="img_escudo" src="img_quiz/escudo">
+            </div>
+            <div class="div_alternativas">
+
+                <img onclick="errou()" src="img_quiz/crafting_bancada (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_bau (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_junkbox (1).png" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_barril (1).png" alt="" class="imgs_alternativas">
+                <img onclick="acertou()" src="img_quiz/crafting_escudo (1).jpg" alt="" class="imgs_alternativas">
+
+
+            </div>
+
+
+
+        </div>
+
+
+        <div id="pergunta7" class="div_perguntas">
+            <div class="titulo_pergunta">7 - Qual o atual minério mais difícil de ser encontrado no Minecraft?</div>
+            <div class="div_alternativas">
+
+                <button class="botao_alternativa" onclick="errou()">Ouro</button>
+                <button class="botao_alternativa" onclick="errou()">Esmeralda</button>
+                <button class="botao_alternativa" onclick="errou()">Diamante</button>
+                <button class="botao_alternativa" onclick="errou()">Cobre</button>
+                <button class="botao_alternativa" onclick="acertou()">Netherite</button>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div id="pergunta8" class="div_perguntas">
+            <div class="titulo_pergunta">8 - Qual o crafting da sela? <img class="img_espada_diamante"
+                    src="img_quiz/sela"></div>
+            <div class="div_alternativas">
+
+                <img onclick="errou()" src="img_quiz/crafting_armadura_cavalo (1).jpg" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_capacete_couro (1).png" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/crafting_bolsa (1).png" alt="" class="imgs_alternativas">
+                <button class="botao_alternativa" onclick="errou()">Não existe sela no Minecraft</button>
+                <button class="botao_alternativa" onclick="acertou()">Não existe crafting para a sela</button>
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="pergunta9" class="div_perguntas">
+            <div class="titulo_pergunta">9 - Qual dos itens a seguir só pode ser encontrado na dimensão do The
+                End(Fim)?</div>
+            <div class="div_alternativas">
+
+                <img onclick="errou()" src="img_quiz/enderpeal.png" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/totem.jpg.crdownload" alt="" class="imgs_alternativas">
+                <img onclick="acertou()" src="img_quiz/elytra" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/besta" alt="" class="imgs_alternativas">
+                <img onclick="errou()" src="img_quiz/maca" alt="" class="imgs_alternativas">
+
+
+            </div>
+
+
+
+        </div>
+
+        <div id="pergunta10" class="div_perguntas">
+            <div class="titulo_pergunta">10 - Qual das afirmativas abaixo está <span class="span_errada" style="color:red;">ERRADA</span>?
+            </div>
+            <div class="div_alternativas">
+
+                <button class="botao_alternativa_maior" onclick="errou()">Não é possível dormir no Nether e no The
+                    End!</button>
+                <button class="botao_alternativa_maior" onclick="errou()">Antes de ganhar o nome "Minecraft", o jogo
+                    se chamava "Cave
+                    Game"!</button>
+                <button class="botao_alternativa_maior" onclick="errou()">O ouro é tão ruim que a espada de ouro da
+                    o mesmo dano da espada de
+                    madeira!</button>
+                <button class="botao_alternativa_maior" onclick="errou()">Você pode curar aldeões zumbis!</button>
+                <button class="botao_alternativa_maior" onclick="acertou()">Só existem dois modos de jogo
+                    disponíveis, o criativo e o
+                    sobrevivência!</button>
+
+            </div>
+
+
+
+        </div>
+
+        <div id="resultado_quiz">
+            <div id="div_qtd_acertos"></div>
+
+            <div id="div_graficos">
+
+                <canvas id="myChart2"></canvas>
+
+            </div>
+
+
+            <div id="div_recomecar">
+
+                Acesse o nosso ranking e confira se conseguiu entrar no nosso TOP 10, caso não tenha conseguido, prossiga com a sua mineração e continue tentando, boa sorte amigo/a!
+
+               
+
+            </div>
+
+
+        </div>
+
+
+        <div id="div_ranking">
+
+            <div class="titulo_ranking">
+
+                <h1>RANKING DO QUIZ</h1>
+
+            </div>
+
+
+            
+
+
+            <div class="tabela_ranking">
+                <table id="ranking">
+                    <tr>
+                        <th>COLOCAÇÃO</th>
+                        <th>NOME</th>
+                        <th>PONTUAÇÃO</th>
+                    </tr>
+
+
+
+
+
+                </table>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
 
     </div>
 
@@ -344,6 +362,14 @@
 </html>
 
 <script>
+
+
+function recarregar_pagina(){
+
+    window.location.reload()
+
+
+}
 
     function sair_menu() {
         window.location = "index.html"
@@ -361,7 +387,7 @@
 
 
     function mudar_imagem() {
-        var imagens = ['url(./img/fundo1.jpg)', 'url(./img/fundo2.png)', 'url(./img/fundo3.jpg)', 'url(./img/fundo4.jpg)', 'url(./img/fundo5.jpg)', 'url(./img/fundo6.jpg)', 'url(./img/fundo7.jpg)', 'url(./img/fundo8.png)']
+        var imagens = ['url(./img/fundo1.jpg)', 'url(./img/fundo2.png)', 'url(./img/fundo3.jpg)', 'url(./img/fundo4.jpg)', 'url(./img/fundo5.jpg)', 'url(./img/fundo6.jpg)', 'url(./img/fundo7.jpg)', 'url(./img/fundo8.jpg)']
 
         var aleatorio = Math.floor(Math.random(1) * (8))
 
@@ -389,15 +415,24 @@
 
         div_ranking.style.display = "none"
 
+        botao_sumir.style.display = "none"
+
+        botao_sumir2.style.display = "none"
+
+        botao_sumir3.style.display = "none"
+
+        botao_carregamento.style.display = "block"
+
         div_lenda.style.display = "block"
 
 
 
     }
 
-    function aparecer_ranking(){
 
-    
+    function aparecer_ranking() {
+
+
 
         div_quiz.style.display = "none"
 
@@ -405,12 +440,51 @@
 
         div_lenda.style.display = "none"
 
+        
+        botao_sumir.style.display = "none"
+
+        botao_sumir2.style.display = "none"
+
+        botao_sumir3.style.display = "none"
+
+        botao_carregamento.style.display = "block"
+
         div_ranking.style.display = "flex"
+
+        
+
+    fetch(`usuarios/listarTop10Jogadores`)
+        .then(res => res.json()).then(res => {
+
+
+            for (var contador = 0; contador < 10; contador++) {
+
+                var tabela = document.getElementById('ranking')
+                var linha = document.createElement('tr')
+                var campo1 = document.createElement('td')
+                var campo2 = document.createElement('td')
+                var campo3 = document.createElement('td')
+
+                campo1.innerHTML = `${contador + 1}`
+                campo2.innerHTML = `${res[contador].nomeUsuario}`
+                campo3.innerHTML = `${res[contador].quantidadeAcertos}`
+
+                linha.appendChild(campo1)
+                linha.appendChild(campo2)
+                linha.appendChild(campo3)
+
+                tabela.appendChild(linha)
+
+
+            }
+
+        });
+
 
 
         // window.location.reload()
 
-       
+
 
 
     }
@@ -439,6 +513,9 @@
 
         botao_sumir.style.display = "none"
         botao_sumir2.style.display = "none"
+        botao_sumir3.style.display = "none"
+    
+        botao_carregamento.style.display = "block"
 
         pergunta1.style.display = "block"
 
@@ -545,9 +622,6 @@
         } else {
 
 
-            botao_sumir.style.display = "block"
-            botao_sumir2.style.display = "block"
-
 
             pergunta10.style.display = "none"
 
@@ -559,10 +633,11 @@
 
             for (var contador = 0; contador <= acertos; contador++) {
 
-                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!`
             }
 
             armazenar_resultado()
+            
 
         }
 
@@ -669,9 +744,7 @@
 
         } else {
 
-            botao_sumir.style.display = "block"
-            botao_sumir2.style.display = "block"
-
+    
 
             pergunta10.style.display = "none"
 
@@ -681,10 +754,12 @@
 
             for (var contador = 0; contador <= acertos; contador++) {
 
-                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!!!`
+                div_qtd_acertos.innerHTML = `Você acertou ${contador} de 10!`
             }
 
             armazenar_resultado()
+
+
 
         }
 
@@ -711,6 +786,7 @@
             if (resposta.ok) {
                 console.log("Resultado armazenado com sucesso")
                 obterDadosGrafico()
+                
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
@@ -823,55 +899,18 @@
 
 
 
-    fetch(`usuarios/listarTop10Jogadores`)
-        .then(res => res.json()).then(res =>{
-            for(var contador = 0; contador<10;contador++){
 
-                var tabela = document.getElementById('ranking')
-                var linha = document.createElement('tr')
-                var campo1 = document.createElement('td')
-                var campo2 = document.createElement('td')
-                var campo3 = document.createElement('td')
-
-                campo1.innerHTML = `${contador+1}`
-                campo2.innerHTML = `${res[contador].nomeUsuario}`
-                campo3.innerHTML = `${res[contador].quantidadeAcertos}`
-
-                linha.appendChild(campo1)
-                linha.appendChild(campo2)
-                linha.appendChild(campo3)
-
-                tabela.appendChild(linha)
-
-
-            }
-
-            
-
-
-
-        });
-
-
-        
-
-    fetch(`usuarios/mostrarMediaAcertos`)
-        .then(res => res.json()).then(res =>{
-
-
-                var media_acertos = document.createElement('span_media_acertos')
-
-                span_media_acertos.innerHTML = `${res.mediaAcertos}`
-
-
-                
-               
-
-        
-
-        });
+    
 
 
 
 
-// </script>
+
+
+
+
+
+
+
+
+</script>
